@@ -29,11 +29,19 @@ export function PdfToEpubClient() {
           <ProcessButton disabled={tool.files.length === 0} loading={loading} progress={tool.progress} onClick={() => tool.process(async ([file], onProgress) => {
             const [{ extractText }, epubModule] = await Promise.all([
               import("@/lib/pdf/extract-text"),
-              import("epub-gen-memory"),
+              import("epub-gen-memory/dist/bundle.min.js"),
             ]);
             const text = await extractText(file);
             const content = `<p>${escapeHtml(text).replace(/\n{2,}/g, "</p><p>").replace(/\n/g, "<br />")}</p>`;
-            const epub = ((epubModule.default as { default?: EpubGenerator }).default ?? epubModule.default) as EpubGenerator;
+            const bundled = epubModule.default as
+              | EpubGenerator
+              | { default?: EpubGenerator };
+            const epub =
+              typeof bundled === "function"
+                ? bundled
+                : bundled.default ??
+                  ((window as unknown as { epubGen?: { default?: EpubGenerator } })
+                    .epubGen?.default as EpubGenerator);
             onProgress(60);
             const output = await epub(
               { title: baseName(file.name), author: "Purelab", publisher: "Purelab" },

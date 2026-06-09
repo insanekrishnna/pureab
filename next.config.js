@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  optimizePackageImports: ["lucide-react"],
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
     return config;
