@@ -26,7 +26,19 @@ export function PdfPreview({ file, pageNum = 1, className }: PdfPreviewProps) {
       setLoading(true);
       setError(null);
       try {
-        await renderPageToCanvas(file, canvasRef.current, pageNum);
+        const renderedCanvas = await renderPageToCanvas(file, pageNum, 1);
+        const targetCanvas = canvasRef.current;
+        const context = targetCanvas?.getContext("2d");
+
+        if (!targetCanvas || !context) {
+          throw new Error("Canvas rendering is not available");
+        }
+
+        targetCanvas.width = renderedCanvas.width;
+        targetCanvas.height = renderedCanvas.height;
+        targetCanvas.style.width = renderedCanvas.style.width;
+        targetCanvas.style.height = renderedCanvas.style.height;
+        context.drawImage(renderedCanvas, 0, 0);
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : "Preview failed");
