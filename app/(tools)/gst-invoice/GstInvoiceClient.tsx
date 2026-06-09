@@ -151,7 +151,12 @@ export function GstInvoiceClient() {
           <textarea value={notes} onChange={(event) => setNotes(event.target.value)} className="h-28 w-full resize-none rounded-[10px] border border-border bg-bg-elevated p-3 text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/10" />
         </Section>
       </div>
-      <div className={cn("space-y-4 lg:block", showPreview ? "block" : "hidden")}>
+      <div
+        className={cn(
+          "space-y-4 overflow-x-auto pb-4 lg:block",
+          showPreview ? "block" : "hidden",
+        )}
+      >
         <div className="flex justify-end">
           <Button icon={<Download className="h-4 w-4" />} onClick={downloadPdf}>
             Download PDF
@@ -179,7 +184,7 @@ function Section({ title, id, open, onOpen, children }: { title: string; id: str
 
 function InvoicePreview({ refEl, logo, business, client, invoice, items, notes, totals }: { refEl: React.RefObject<HTMLDivElement | null>; logo: string | null; business: Record<string, string>; client: Record<string, string>; invoice: Record<string, string>; items: LineItem[]; notes: string; totals: ReturnType<typeof calculateTotals> }) {
   return (
-    <div ref={refEl} className="mx-auto min-h-[842px] max-w-[595px] bg-white p-10 text-zinc-950 shadow-sm ring-1 ring-zinc-200">
+    <div ref={refEl} className="mx-auto min-h-[842px] w-[595px] bg-white p-10 text-zinc-950 shadow-sm ring-1 ring-zinc-200">
       <header className="flex justify-between gap-6 border-b border-zinc-200 pb-6">
         <div>
           {logo ? (
