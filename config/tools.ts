@@ -1,0 +1,303 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  AlignJustify,
+  BookOpen,
+  Code,
+  Crop,
+  Droplets,
+  EyeOff,
+  FileCode,
+  FileDown,
+  FilePlus2,
+  FileSpreadsheet,
+  FileText,
+  FileType2,
+  Fingerprint,
+  GitCompare,
+  Hash,
+  Image as ImageIcon,
+  Layers,
+  Layers2,
+  Lock,
+  MessageSquare,
+  Minimize2,
+  Receipt,
+  RotateCw,
+  ScanLine,
+  Scissors,
+  Shield,
+  ShoppingCart,
+  Sparkles,
+  Type,
+  Unlock,
+  Volume2,
+  Wrench,
+} from "lucide-react";
+
+export type ToolCategory =
+  | "organize"
+  | "convert"
+  | "edit"
+  | "security"
+  | "ai"
+  | "business";
+
+export interface Tool {
+  slug: string;
+  name: string;
+  description: string;
+  icon: LucideIcon;
+  category: ToolCategory;
+  featured?: boolean;
+}
+
+export const tools: Tool[] = [
+  {
+    slug: "merge-pdf",
+    name: "Merge PDF",
+    description: "Combine multiple PDFs into one file",
+    icon: FilePlus2,
+    category: "organize",
+    featured: true,
+  },
+  {
+    slug: "split-pdf",
+    name: "Split PDF",
+    description: "Extract pages or split into parts",
+    icon: Scissors,
+    category: "organize",
+    featured: true,
+  },
+  {
+    slug: "compress-pdf",
+    name: "Compress PDF",
+    description: "Reduce file size without losing quality",
+    icon: Minimize2,
+    category: "organize",
+    featured: true,
+  },
+  {
+    slug: "rotate-pdf",
+    name: "Rotate PDF",
+    description: "Fix sideways or upside-down pages",
+    icon: RotateCw,
+    category: "organize",
+  },
+  {
+    slug: "organize-pages",
+    name: "Organize Pages",
+    description: "Reorder, delete or rearrange pages",
+    icon: Layers,
+    category: "organize",
+  },
+  {
+    slug: "crop-pdf",
+    name: "Crop & Resize",
+    description: "Trim margins or resize pages",
+    icon: Crop,
+    category: "organize",
+  },
+  {
+    slug: "pdf-to-jpg",
+    name: "PDF to JPG",
+    description: "Export pages as high-quality images",
+    icon: ImageIcon,
+    category: "convert",
+    featured: true,
+  },
+  {
+    slug: "jpg-to-pdf",
+    name: "Images to PDF",
+    description: "Convert JPG or PNG to PDF",
+    icon: FileType2,
+    category: "convert",
+    featured: true,
+  },
+  {
+    slug: "word-to-pdf",
+    name: "Word to PDF",
+    description: "Convert .docx files to PDF",
+    icon: FileText,
+    category: "convert",
+  },
+  {
+    slug: "pdf-to-word",
+    name: "PDF to Word",
+    description: "Export PDF as editable .docx",
+    icon: FileDown,
+    category: "convert",
+  },
+  {
+    slug: "excel-to-pdf",
+    name: "Excel to PDF",
+    description: "Convert spreadsheets to PDF",
+    icon: FileSpreadsheet,
+    category: "convert",
+  },
+  {
+    slug: "html-to-pdf",
+    name: "HTML to PDF",
+    description: "Convert HTML or URL to PDF",
+    icon: Code,
+    category: "convert",
+  },
+  {
+    slug: "markdown-to-pdf",
+    name: "Markdown to PDF",
+    description: "Convert .md to formatted PDF",
+    icon: FileCode,
+    category: "convert",
+  },
+  {
+    slug: "pdf-to-epub",
+    name: "PDF to EPUB",
+    description: "For Kindle and e-readers",
+    icon: BookOpen,
+    category: "convert",
+  },
+  {
+    slug: "pdf-to-audio",
+    name: "PDF to Audio",
+    description: "Listen with neural text-to-speech",
+    icon: Volume2,
+    category: "convert",
+  },
+  {
+    slug: "edit-pdf",
+    name: "Edit PDF",
+    description: "Click any text to edit it",
+    icon: Type,
+    category: "edit",
+    featured: true,
+  },
+  {
+    slug: "add-watermark",
+    name: "Add Watermark",
+    description: "Stamp text or image on pages",
+    icon: Droplets,
+    category: "edit",
+  },
+  {
+    slug: "page-numbers",
+    name: "Page Numbers",
+    description: "Auto-number pages",
+    icon: Hash,
+    category: "edit",
+  },
+  {
+    slug: "headers-footers",
+    name: "Headers & Footers",
+    description: "Add to every page",
+    icon: AlignJustify,
+    category: "edit",
+  },
+  {
+    slug: "redact-pdf",
+    name: "Redact PDF",
+    description: "Permanently remove sensitive text",
+    icon: EyeOff,
+    category: "edit",
+  },
+  {
+    slug: "extract-text",
+    name: "Extract Text",
+    description: "Copy all text from any PDF",
+    icon: FileText,
+    category: "edit",
+  },
+  {
+    slug: "ocr-pdf",
+    name: "OCR PDF",
+    description: "Make scanned PDFs searchable",
+    icon: ScanLine,
+    category: "edit",
+  },
+  {
+    slug: "repair-pdf",
+    name: "Repair PDF",
+    description: "Recover corrupted PDF files",
+    icon: Wrench,
+    category: "edit",
+  },
+  {
+    slug: "flatten-pdf",
+    name: "Flatten PDF",
+    description: "Remove forms, make static",
+    icon: Layers2,
+    category: "edit",
+  },
+  {
+    slug: "encrypt-pdf",
+    name: "Encrypt PDF",
+    description: "Password-protect with AES-256",
+    icon: Lock,
+    category: "security",
+  },
+  {
+    slug: "remove-password",
+    name: "Remove Password",
+    description: "Unlock protected PDFs",
+    icon: Unlock,
+    category: "security",
+  },
+  {
+    slug: "privacy-scanner",
+    name: "Privacy Scanner",
+    description: "Find hidden metadata",
+    icon: Shield,
+    category: "security",
+  },
+  {
+    slug: "fingerprint-pdf",
+    name: "Fingerprint PDF",
+    description: "Track document leaks",
+    icon: Fingerprint,
+    category: "security",
+  },
+  {
+    slug: "chat-with-pdf",
+    name: "Chat with PDF",
+    description: "Ask AI questions about docs",
+    icon: MessageSquare,
+    category: "ai",
+    featured: true,
+  },
+  {
+    slug: "summarize-pdf",
+    name: "Summarize PDF",
+    description: "Get an AI summary instantly",
+    icon: Sparkles,
+    category: "ai",
+  },
+  {
+    slug: "compare-pdfs",
+    name: "Compare PDFs",
+    description: "Side-by-side document diff",
+    icon: GitCompare,
+    category: "ai",
+  },
+  {
+    slug: "gst-invoice",
+    name: "GST Invoice",
+    description: "GST-compliant invoices free",
+    icon: Receipt,
+    category: "business",
+  },
+  {
+    slug: "pos-billing",
+    name: "POS Billing",
+    description: "Point-of-sale receipts",
+    icon: ShoppingCart,
+    category: "business",
+  },
+];
+
+export const categories: { id: ToolCategory | "all"; label: string }[] = [
+  { id: "all", label: "All tools" },
+  { id: "organize", label: "Organize" },
+  { id: "convert", label: "Convert" },
+  { id: "edit", label: "Edit" },
+  { id: "security", label: "Security" },
+  { id: "ai", label: "AI" },
+  { id: "business", label: "Business" },
+];
