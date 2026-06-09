@@ -11,6 +11,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@types/jszip": "^3.4.0",
+    "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "docx": "^9.7.1",
     "epub-gen-memory": "^1.1.2",

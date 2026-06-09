@@ -43,6 +43,9 @@ export function ToolGrid({ tools }: ToolGridProps) {
         <motion.div
           key={tool.slug}
           variants={item}
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.18, ease: "easeOut" }}
         >
           <ToolCard tool={tool} />

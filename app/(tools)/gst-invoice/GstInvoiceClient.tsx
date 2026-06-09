@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Download, Plus, Trash2 } from "lucide-react";
+import { ChevronDown, Download, Eye, Plus, Trash2 } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/Button";
@@ -34,6 +34,7 @@ const today = new Date().toISOString().slice(0, 10);
 export function GstInvoiceClient() {
   const previewRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState("business");
+  const [showPreview, setShowPreview] = useState(false);
   const [logo, setLogo] = useState<string | null>(null);
   const [business, setBusiness] = useState({
     name: "Purelab Studio",
@@ -92,6 +93,14 @@ export function GstInvoiceClient() {
   return (
     <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 py-8 lg:grid-cols-[420px_1fr]">
       <div className="space-y-3">
+        <Button
+          className="w-full lg:hidden"
+          variant="secondary"
+          icon={<Eye className="h-4 w-4" />}
+          onClick={() => setShowPreview((current) => !current)}
+        >
+          {showPreview ? "Hide preview" : "Preview"}
+        </Button>
         <Section title="Business Details" id="business" open={open} onOpen={setOpen}>
           <Input label="Business Name" value={business.name} onChange={(event) => setBusiness({ ...business, name: event.target.value })} />
           <Input label="GSTIN" value={business.gstin} onChange={(event) => setBusiness({ ...business, gstin: event.target.value })} />
@@ -142,7 +151,7 @@ export function GstInvoiceClient() {
           <textarea value={notes} onChange={(event) => setNotes(event.target.value)} className="h-28 w-full resize-none rounded-[10px] border border-border bg-bg-elevated p-3 text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/10" />
         </Section>
       </div>
-      <div className="space-y-4">
+      <div className={cn("space-y-4 lg:block", showPreview ? "block" : "hidden")}>
         <div className="flex justify-end">
           <Button icon={<Download className="h-4 w-4" />} onClick={downloadPdf}>
             Download PDF
