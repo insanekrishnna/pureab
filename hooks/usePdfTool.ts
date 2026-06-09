@@ -43,7 +43,6 @@ export function usePdfTool(options: UsePdfToolOptions = {}) {
         onProgress: (p: number) => void,
       ) => Promise<{ blob: Blob; filename: string }>,
     ) => {
-      if (files.length === 0) return;
       setStatus("processing");
       setProgress(0);
       setError(null);
