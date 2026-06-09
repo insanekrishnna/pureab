@@ -32,6 +32,10 @@ export function usePdfTool(options: UsePdfToolOptions = {}) {
     setFiles((prev) => prev.filter((_, i) => i !== index));
   }, []);
 
+  const reorderFiles = useCallback((nextFiles: File[]) => {
+    setFiles(nextFiles);
+  }, []);
+
   const process = useCallback(
     async (
       processFn: (
@@ -71,6 +75,7 @@ export function usePdfTool(options: UsePdfToolOptions = {}) {
     result,
     onDrop,
     removeFile,
+    reorderFiles,
     process,
     reset,
   };

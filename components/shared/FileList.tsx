@@ -19,6 +19,35 @@ function fileKey(file: File) {
   return `${file.name}-${file.size}-${file.lastModified}`;
 }
 
+function FileIcon({ file }: { file: File }) {
+  const [url, setUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!file.type.startsWith("image/")) {
+      setUrl(null);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    setUrl(objectUrl);
+
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [file]);
+
+  if (url) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={url}
+        alt=""
+        className="h-9 w-9 shrink-0 rounded-[6px] border border-border object-cover"
+      />
+    );
+  }
+
+  return <FileText className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />;
+}
+
 export function FileList({
   files,
   onRemove,
@@ -57,7 +86,7 @@ export function FileList({
           aria-hidden="true"
         />
       ) : null}
-      <FileText className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+      <FileIcon file={file} />
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium text-text-primary">
           {file.name}
