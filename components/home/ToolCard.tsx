@@ -12,10 +12,10 @@ export function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link
       href={`/${tool.slug}`}
-      className="block rounded-[14px] border border-border bg-bg-elevated p-5 shadow-sm transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-border-hover hover:shadow-md"
+      className="group block rounded-[14px] border border-border bg-bg-elevated p-5 shadow-sm transition-all duration-150 ease-out hover:-translate-y-0.5 hover:border-border-hover hover:shadow-md"
     >
       <div className="flex items-center gap-3">
-        <span className="rounded-[8px] bg-accent-subtle p-2 text-accent">
+        <span className="frost-icon-surface rounded-[8px] p-2">
           <Icon className="h-5 w-5" aria-hidden="true" />
         </span>
         <h3 className="min-w-0 truncate text-sm font-medium text-text-primary">

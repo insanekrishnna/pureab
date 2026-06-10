@@ -25,7 +25,7 @@ export function ToolShell({
         All tools
       </Link>
       <header className="mt-6 flex items-start gap-3">
-        <span className="rounded-[10px] bg-accent-subtle p-2.5 text-accent">
+        <span className="frost-icon-surface rounded-[10px] p-2.5">
           {icon}
         </span>
         <div className="min-w-0">

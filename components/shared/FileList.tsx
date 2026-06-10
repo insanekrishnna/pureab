@@ -45,7 +45,11 @@ function FileIcon({ file }: { file: File }) {
     );
   }
 
-  return <FileText className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />;
+  return (
+    <span className="frost-icon-surface flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px]">
+      <FileText className="h-5 w-5" aria-hidden="true" />
+    </span>
+  );
 }
 
 export function FileList({

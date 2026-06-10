@@ -37,7 +37,7 @@ export function FileDropzone({
         className={cn(
           "flex min-h-[180px] cursor-pointer items-center justify-center rounded-[14px] border-2 border-dashed border-border bg-bg-subtle p-6 text-center transition-all duration-150 ease-out sm:min-h-[220px]",
           "hover:border-border-hover hover:bg-bg-elevated focus:outline-none focus:ring-2 focus:ring-accent/10",
-          isDragActive && "border-accent bg-accent-subtle",
+          isDragActive && "border-border-hover bg-bg-elevated",
           className,
         )}
       >
@@ -52,10 +52,10 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-3"
             >
-              <span className="rounded-full bg-accent p-3 text-white">
+              <span className="frost-icon-surface rounded-full p-3">
                 <Upload className="h-6 w-6" aria-hidden="true" />
               </span>
-              <span className="text-sm font-medium text-accent-text">
+              <span className="text-sm font-medium text-text-primary">
                 Release to upload
               </span>
             </motion.div>
@@ -68,10 +68,9 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-2"
             >
-              <FileText
-                className="h-8 w-8 text-text-muted"
-                aria-hidden="true"
-              />
+              <span className="frost-icon-surface rounded-[12px] p-3">
+                <FileText className="h-7 w-7" aria-hidden="true" />
+              </span>
               <span className="text-sm font-medium text-text-primary">
                 {label}
               </span>

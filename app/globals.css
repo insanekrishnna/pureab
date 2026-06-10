@@ -17,6 +17,20 @@
   --success-subtle: #F0FDF4;
   --error: #DC2626;
   --error-subtle: #FEF2F2;
+  --navbar-action-bg: #F4F4F5;
+  --navbar-action-bg-hover: #EDEDEF;
+  --navbar-action-text: #09090B;
+  --navbar-action-icon: #A1A1AA;
+  --navbar-switch-track: #F0F0F2;
+  --navbar-switch-thumb: #FFFFFF;
+  --navbar-switch-icon: #09090B;
+  --frost-icon-bg: rgb(244 244 246 / 0.72);
+  --frost-icon-bg-strong: rgb(255 255 255 / 0.82);
+  --frost-icon-border: rgb(255 255 255 / 0.86);
+  --frost-icon-highlight: rgb(255 255 255 / 0.92);
+  --frost-icon-color: #7A7C86;
+  --frost-icon-color-hover: #5F626D;
+  --frost-icon-shadow: rgb(15 23 42 / 0.09);
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.04);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.04);
@@ -24,6 +38,40 @@
   --radius-md: 10px;
   --radius-lg: 14px;
   --radius-xl: 20px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #08080A;
+  --bg-subtle: #1F1F24;
+  --bg-elevated: #0B0B0D;
+  --border: #202026;
+  --border-hover: #303038;
+  --text-primary: #F1F1F4;
+  --text-secondary: #C9C9D0;
+  --text-muted: #8E8E98;
+  --accent: #60A5FA;
+  --accent-hover: #3B82F6;
+  --accent-subtle: #111D35;
+  --accent-text: #BFDBFE;
+  --success: #22C55E;
+  --success-subtle: #052E16;
+  --error: #F87171;
+  --error-subtle: #450A0A;
+  --navbar-action-bg: #222229;
+  --navbar-action-bg-hover: #2A2A32;
+  --navbar-action-text: #F4F4F6;
+  --navbar-action-icon: #686874;
+  --navbar-switch-track: #24242A;
+  --navbar-switch-thumb: #F6F6F7;
+  --navbar-switch-icon: #5A5A63;
+  --frost-icon-bg: rgb(34 34 41 / 0.72);
+  --frost-icon-bg-strong: rgb(47 47 56 / 0.68);
+  --frost-icon-border: rgb(255 255 255 / 0.08);
+  --frost-icon-highlight: rgb(255 255 255 / 0.12);
+  --frost-icon-color: #686874;
+  --frost-icon-color-hover: #8C8C98;
+  --frost-icon-shadow: rgb(0 0 0 / 0.24);
 }
 
 @theme inline {
@@ -61,4 +109,140 @@ body {
   background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+:root[data-theme="dark"] .font-bold {
+  font-weight: 650;
+}
+
+:root[data-theme="dark"] .font-semibold {
+  font-weight: 500;
+}
+
+:root[data-theme="dark"] .font-medium {
+  font-weight: 400;
+}
+
+.navbar-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-theme-switch {
+  display: inline-flex;
+  width: 3rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--navbar-switch-track);
+  padding: 2px;
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.navbar-theme-switch:focus-visible,
+.navbar-install-button:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.navbar-theme-thumb {
+  pointer-events: none;
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--navbar-switch-thumb);
+  color: var(--navbar-switch-icon);
+  transform: translateX(0);
+  transition:
+    transform 300ms ease,
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.navbar-theme-switch[data-state="checked"] .navbar-theme-thumb {
+  transform: translateX(1.5rem);
+}
+
+.navbar-install-button {
+  display: inline-flex;
+  height: 2.5rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--navbar-action-bg);
+  color: var(--navbar-action-text);
+  padding: 0 0.875rem 0 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  outline: none;
+  white-space: nowrap;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.navbar-install-button:hover {
+  background: var(--navbar-action-bg-hover);
+}
+
+.navbar-install-button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.navbar-install-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  color: var(--navbar-action-icon);
+}
+
+.frost-icon-surface {
+  color: var(--frost-icon-color);
+  background:
+    linear-gradient(135deg, var(--frost-icon-bg-strong), var(--frost-icon-bg));
+  border: 1px solid var(--frost-icon-border);
+  box-shadow:
+    inset 0 1px 0 var(--frost-icon-highlight),
+    0 10px 24px var(--frost-icon-shadow);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.frost-icon-surface svg {
+  stroke-width: 1.85;
+  filter: drop-shadow(0 1px 0 var(--frost-icon-highlight));
+}
+
+.group:hover .frost-icon-surface,
+.frost-icon-surface:hover {
+  color: var(--frost-icon-color-hover);
+  border-color: color-mix(in srgb, var(--frost-icon-border) 72%, var(--frost-icon-color));
+  box-shadow:
+    inset 0 1px 0 var(--frost-icon-highlight),
+    0 14px 30px var(--frost-icon-shadow);
+  transform: translateY(-1px);
 }
