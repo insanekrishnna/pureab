@@ -272,7 +272,6 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--navbar-action-bg);
   color: var(--navbar-action-text);
@@ -285,14 +284,12 @@ textarea {
   box-shadow: var(--shadow-sm);
   transition:
     background-color 160ms ease,
-    border-color 160ms ease,
     color 160ms ease,
     transform 160ms ease;
 }
 
 .navbar-install-button:hover {
   background: var(--navbar-action-bg-hover);
-  border-color: var(--border-hover);
 }
 
 .navbar-install-button:disabled {
@@ -301,8 +298,8 @@ textarea {
 }
 
 .navbar-install-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   flex-shrink: 0;
   color: var(--navbar-action-icon);
 }
