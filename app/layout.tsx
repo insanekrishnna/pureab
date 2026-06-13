@@ -23,11 +23,6 @@ export const metadata: Metadata = {
   title: "Purelab - Free PDF Tools, No Watermark",
   description:
     "46 free PDF tools. No watermark. No upload. No sign-up. Files never leave your device.",
-  icons: {
-    icon: [{ url: "/pure.png", type: "image/png" }],
-    shortcut: [{ url: "/pure.png", type: "image/png" }],
-    apple: [{ url: "/pure.png", type: "image/png" }],
-  },
 };
 
 export default function RootLayout({

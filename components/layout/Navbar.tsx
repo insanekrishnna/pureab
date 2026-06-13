@@ -6,14 +6,14 @@ import { NavbarActions } from "@/components/layout/NavbarActions";
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur-sm">
-      <div className="mx-auto flex h-auto py-4 max-w-5xl items-center justify-between gap-3 border-x border-border px-4">
+      <div className="mx-auto flex h-auto py-2 max-w-5xl items-center justify-between gap-3 border-x border-border px-4">
         <Link
           href="/"
-          className="flex min-w-0 items-center gap-2"
+          className="flex min-w-0 items-center gap-0"
           aria-label="Purelab home"
         >
           <BrandLogo priority />
-          <span className="hero-display truncate text-xl text-text-primary">
+          <span className="hero-display truncate text-xl text-text-primary -ml-4">
             purelab
           </span>
         </Link>
