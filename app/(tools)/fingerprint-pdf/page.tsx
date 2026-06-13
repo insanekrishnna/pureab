@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ComingSoonTool } from "@/components/shared/ComingSoonTool";
 
 export const metadata: Metadata = {
-  title: "Fingerprint PDF Free - No Watermark | Purelab",
+  title: "Fingerprint PDF Free - No Watermark | Paperlab",
   description:
     "Track document leaks with PDF fingerprinting. No watermark, no upload, no sign-up.",
 };

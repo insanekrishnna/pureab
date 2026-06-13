@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Purelab - Free PDF Tools, No Watermark",
+  title: "Paperlab - Free PDF Tools, No Watermark",
   description:
     "46 free PDF tools. No watermark. No upload. No sign-up. Files never leave your device.",
 };

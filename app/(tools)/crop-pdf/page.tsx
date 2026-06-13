@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ComingSoonTool } from "@/components/shared/ComingSoonTool";
 
 export const metadata: Metadata = {
-  title: "Crop & Resize Free - No Watermark | Purelab",
+  title: "Crop & Resize Free - No Watermark | Paperlab",
   description:
     "Trim margins or resize PDF pages. No watermark, no upload, no sign-up.",
 };

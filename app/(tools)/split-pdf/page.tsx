@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { SplitPdfClient } from "./SplitPdfClient";
 
 export const metadata: Metadata = {
-  title: "Split PDF Free - Extract Pages | Purelab",
+  title: "Split PDF Free - Extract Pages | Paperlab",
   description:
     "Extract PDF pages or split documents into parts. No watermark, no upload, no sign-up.",
 };

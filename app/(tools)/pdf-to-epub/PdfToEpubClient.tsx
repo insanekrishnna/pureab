@@ -44,7 +44,7 @@ export function PdfToEpubClient() {
                     .epubGen?.default as EpubGenerator);
             onProgress(60);
             const output = await epub(
-              { title: baseName(file.name), author: "Purelab", publisher: "Purelab" },
+              { title: baseName(file.name), author: "Paperlab", publisher: "Paperlab" },
               [{ title: baseName(file.name), content }],
             );
             const blob = output instanceof Blob

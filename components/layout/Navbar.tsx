@@ -10,7 +10,7 @@ export function Navbar() {
         <Link
           href="/"
           className="flex min-w-0 items-center gap-0 py-3 text-text-primary transition-colors hover:text-text-primary/80"
-          aria-label="Purelab home"
+          aria-label="Paperlab home"
         >
           <BrandLogo priority />
           <span className="hero-display truncate text-xl text-text-primary -ml-5 ">

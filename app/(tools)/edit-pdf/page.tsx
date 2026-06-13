@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ComingSoonTool } from "@/components/shared/ComingSoonTool";
 
 export const metadata: Metadata = {
-  title: "Edit PDF Free - No Watermark | Purelab",
+  title: "Edit PDF Free - No Watermark | Paperlab",
   description:
     "Edit PDF text and page content. No watermark, no upload, no sign-up.",
 };

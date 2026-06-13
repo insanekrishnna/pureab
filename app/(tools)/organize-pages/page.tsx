@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ComingSoonTool } from "@/components/shared/ComingSoonTool";
 
 export const metadata: Metadata = {
-  title: "Organize Pages Free - No Watermark | Purelab",
+  title: "Organize Pages Free - No Watermark | Paperlab",
   description:
     "Reorder, delete, or rearrange PDF pages. No watermark, no upload, no sign-up.",
 };

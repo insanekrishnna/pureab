@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { tools } from "@/config/tools";
 
-const baseUrl = "https://purelab.vercel.app";
+const baseUrl = "https://paperlab.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

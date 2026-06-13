@@ -10,7 +10,7 @@ export function BrandLogo({ className, priority = false }: BrandLogoProps) {
   return (
     <Image
       src="/pure.png"
-      alt="Purelab Logo"
+      alt="Paperlab Logo"
       width={96}
       height={96}
       className={cn("object-contain", className)}

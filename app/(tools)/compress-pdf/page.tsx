@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { CompressPdfClient } from "./CompressPdfClient";
 
 export const metadata: Metadata = {
-  title: "Compress PDF Free - Reduce File Size | Purelab",
+  title: "Compress PDF Free - Reduce File Size | Paperlab",
   description:
     "Reduce PDF file size without losing quality. No watermark, no upload, no sign-up.",
 };

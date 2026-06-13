@@ -24,11 +24,11 @@ export function Footer() {
                 Ready to simplify your PDF workflows?
               </h2>
               <p className="mono-copy mt-4 max-w-sm text-text-secondary text-sm">
-                Clean, fast, and completely free. Process files directly in your browser.
+                Clean, fast, and completely free. <br /> Process files directly in your browser.
               </p>
               <Link 
                 href="/merge-pdf" 
-                className="mt-8 inline-flex items-center justify-center rounded-full bg-[#7b61ff] px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#7b61ff]/20 transition-all hover:-translate-y-0.5 hover:bg-[#6a4fef] focus:outline-none focus:ring-2 focus:ring-[#7b61ff] focus:ring-offset-2 focus:ring-offset-bg-base"
+                className="mt-6 inline-flex items-center justify-center rounded-md bg-[#7b61ff] px-6 py-2 text-sm font-medium text-white  shadow-[#7b61ff]/20 transition-all hover:-translate-y-0.1 hover:bg-[#6a4fef] focus:outline-none focus:ring-2 focus:ring-[#7b61ff] focus:ring-offset-2 focus:ring-offset-bg-base "
               >
                 Try for Free
               </Link>

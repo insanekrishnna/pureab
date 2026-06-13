@@ -37,7 +37,7 @@ export function GstInvoiceClient() {
   const [showPreview, setShowPreview] = useState(false);
   const [logo, setLogo] = useState<string | null>(null);
   const [business, setBusiness] = useState({
-    name: "Purelab Studio",
+    name: "Paperlab Studio",
     gstin: "29ABCDE1234F1Z5",
     address: "MG Road, Bengaluru",
     state: "Karnataka",

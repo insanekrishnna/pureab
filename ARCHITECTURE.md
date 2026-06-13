@@ -16,7 +16,7 @@ We are building a competitor to ihatepdf.cv. Their product works well technicall
 
 **Design north star:** Think Notion meets Apple Human Interface Guidelines. Every pixel has a reason. No decoration for decoration's sake. White space is a feature.
 
-**Project codename:** `purelab` (or replace with your chosen domain name throughout)
+**Project codename:** `paperlab` (or replace with your chosen domain name throughout)
 
 ---
 
@@ -154,7 +154,7 @@ Spacing unit: 4px base
 ## 3. FILE STRUCTURE
 
 ```
-purelab/
+paperlab/
 ├── app/
 │   ├── layout.tsx                  ← root layout, Geist font, analytics
 │   ├── page.tsx                    ← homepage (tool grid)
@@ -854,7 +854,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2">
           <div className="h-6 w-6 rounded-[6px] bg-blue-600" />  {/* Replace with your logo */}
-          <span className="text-sm font-semibold text-zinc-900">purelab</span>
+          <span className="text-sm font-semibold text-zinc-900">paperlab</span>
         </Link>
         <div className="flex items-center gap-1 text-xs text-zinc-400">
           <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
@@ -905,10 +905,10 @@ Each tool page needs proper metadata for Google ranking.
 ```typescript
 // Pattern for every tool page
 export const metadata: Metadata = {
-  title: 'Merge PDF Free — No Watermark, No Upload | Purelab',
+  title: 'Merge PDF Free — No Watermark, No Upload | Paperlab',
   description: 'Combine PDF files instantly in your browser. No watermark, no upload, no sign-up. Files never leave your device. 100% free forever.',
   openGraph: {
-    title: 'Merge PDF Free — No Watermark | Purelab',
+    title: 'Merge PDF Free — No Watermark | Paperlab',
     description: '...',
     type: 'website',
   }
@@ -1108,7 +1108,7 @@ Tell Cursor to build in this exact sequence. Do not skip phases.
 
 ## 21. WHAT MAKES THIS BETTER THAN IHATEPDF.CV
 
-| ihatepdf.cv | Purelab |
+| ihatepdf.cv | Paperlab |
 |---|---|
 | Functional but cluttered homepage | Clean grid with category filter + search |
 | No visual hierarchy | Clear type scale, intentional spacing |

@@ -44,11 +44,82 @@ export function Hero() {
     <section className="mx-auto max-w-5xl border-x border-border">
       <div className="relative isolate min-h-[500px] overflow-hidden border-b border-border px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="linework pointer-events-none absolute inset-0 opacity-70" />
-        <div className="pointer-events-none absolute right-4 top-24 hidden select-none text-[18rem] leading-none text-text-primary/[0.025] lg:block">
-          PDF
+        {/* Impressive Document Graphic */}
+        <div className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 lg:block w-[500px]">
+           {/* The 3 Documents */}
+           <div className="relative h-[450px] w-full">
+             
+             {/* Left Document */}
+             <div 
+               className="absolute left-8 top-70 h-40 w-30 rounded-lg bg-bg-elevated p-4 border border-border overflow-hidden"
+               style={{ transform: "rotate(-14deg)" }}
+             >
+               {/* Folded corner */}
+               <div className="absolute right-0 top-0 h-12 w-12 bg-bg-base" />
+               <div className="absolute right-0 top-0 h-12 w-12 rounded-bl-lg bg-gradient-to-br from-[#7b61ff] to-[#4c36cc]" style={{ clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
+               
+               {/* Mock Content */}
+               <div className="mt-5 space-y-2 opacity-50">
+                 <div className="h-1.5 w-16 rounded-full bg-[#7b61ff]" />
+                 <div className="h-1 w-24 rounded-full bg-border" />
+                 <div className="mt-4 space-y-1.5">
+                   {[...Array(6)].map((_, i) => (
+                     <div key={i} className="h-1 w-full rounded-full bg-text-muted/30" />
+                   ))}
+                 </div>
+               </div>
+               {/* Signature */}
+               <div className="absolute bottom-4 right-4 h-6 w-12 opacity-40">
+                 <svg viewBox="0 0 100 50" className="stroke-[#7b61ff] stroke-2 fill-none"><path d="M10 40 Q 30 10, 50 30 T 90 20"/></svg>
+               </div>
+             </div>
+
+             {/* Right Document */}
+             <div 
+               className="absolute right-8 top-70 h-40 w-30 rounded-lg bg-bg-elevated p-4 border border-border overflow-hidden"
+               style={{ transform: "rotate(14deg)" }}
+             >
+               <div className="absolute right-0 top-0 h-12 w-12 bg-bg-base" />
+               <div className="absolute right-0 top-0 h-12 w-12 rounded-bl-lg bg-gradient-to-br from-[#7b61ff] to-[#4c36cc]" style={{ clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
+               
+               <div className="mt-5 space-y-2 opacity-50">
+                 <div className="h-1.5 w-16 rounded-full bg-[#7b61ff]" />
+                 <div className="h-1 w-24 rounded-full bg-border" />
+                 <div className="mt-4 space-y-1.5">
+                   {[...Array(6)].map((_, i) => (
+                     <div key={i} className="h-1 w-full rounded-full bg-text-muted/30" />
+                   ))}
+                 </div>
+               </div>
+               <div className="absolute bottom-4 right-4 h-6 w-12 opacity-40">
+                 <svg viewBox="0 0 100 50" className="stroke-[#7b61ff] stroke-2 fill-none"><path d="M10 40 Q 30 10, 50 30 T 90 20"/></svg>
+               </div>
+             </div>
+
+             {/* Center Document (Top) */}
+             <div 
+               className="absolute left-1/2 top-40 z-10 h-75 w-58 -translate-x-1/2 rounded-xl bg-bg-elevated p-6 border border-border overflow-hidden"
+             >
+               <div className="absolute right-0 top-0 h-16 w-16 bg-bg-base" />
+               <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-xl bg-gradient-to-br from-[#7b61ff] to-[#4c36cc]" style={{ clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
+               
+               <div className="mt-6 space-y-2 opacity-80">
+                 <div className="h-2 w-20 rounded-full bg-[#7b61ff]" />
+                 <div className="h-1.5 w-32 rounded-full bg-border" />
+                 <div className="h-1.5 w-24 rounded-full bg-border" />
+                 <div className="mt-6 space-y-2.5">
+                   {[...Array(8)].map((_, i) => (
+                     <div key={i} className="h-1.5 w-full rounded-full bg-text-muted/30" />
+                   ))}
+                 </div>
+               </div>
+               <div className="absolute bottom-6 right-6 h-10 w-20 opacity-60">
+                 <svg viewBox="0 0 100 50" className="stroke-[#7b61ff] stroke-2 fill-none"><path d="M10 40 Q 30 10, 50 30 T 90 20"/></svg>
+               </div>
+             </div>
+             
+           </div>
         </div>
-        <div className="pointer-events-none absolute bottom-14 right-16 hidden h-64 w-44 rotate-12 rounded-[32px] border border-border bg-bg-subtle/40 shadow-lg lg:block" />
-        <div className="pointer-events-none absolute bottom-0 right-52 hidden h-44 w-32 -rotate-6 rounded-[28px] border border-border bg-bg-subtle/50 shadow-md lg:block" />
 
         <motion.div
           initial={{ opacity: 0, y: 12 }}

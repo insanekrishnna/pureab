@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ExtractTextClient } from "./ExtractTextClient";
 
 export const metadata: Metadata = {
-  title: "Extract Text Free - No Watermark | Purelab",
+  title: "Extract Text Free - No Watermark | Paperlab",
   description:
     "Extract selectable text from PDF files. No watermark, no upload, no sign-up.",
 };

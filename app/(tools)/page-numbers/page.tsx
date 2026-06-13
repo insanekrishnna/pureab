@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PageNumbersClient } from "./PageNumbersClient";
 
 export const metadata: Metadata = {
-  title: "Page Numbers Free - No Watermark | Purelab",
+  title: "Page Numbers Free - No Watermark | Paperlab",
   description:
     "Add page numbers to every PDF page. No watermark, no upload, no sign-up.",
 };

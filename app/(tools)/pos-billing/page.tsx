@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ComingSoonTool } from "@/components/shared/ComingSoonTool";
 
 export const metadata: Metadata = {
-  title: "POS Billing Free - No Watermark | Purelab",
+  title: "POS Billing Free - No Watermark | Paperlab",
   description:
     "Create point-of-sale receipts in your browser. No watermark, no upload, no sign-up.",
 };

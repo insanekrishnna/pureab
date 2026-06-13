@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { RepairPdfClient } from "./RepairPdfClient";
 
 export const metadata: Metadata = {
-  title: "Repair PDF Free - No Watermark | Purelab",
+  title: "Repair PDF Free - No Watermark | Paperlab",
   description:
     "Attempt to recover and re-save damaged PDF files. No watermark, no upload, no sign-up.",
 };

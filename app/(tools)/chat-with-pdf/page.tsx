@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ChatWithPdfClient } from "./ChatWithPdfClient";
 
 export const metadata: Metadata = {
-  title: "Chat with PDF Free - No Watermark | Purelab",
+  title: "Chat with PDF Free - No Watermark | Paperlab",
   description:
     "Ask AI questions about a PDF document. No watermark, no upload, no sign-up.",
 };

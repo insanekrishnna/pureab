@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { HeadersFootersClient } from "./HeadersFootersClient";
 
 export const metadata: Metadata = {
-  title: "Headers & Footers Free - No Watermark | Purelab",
+  title: "Headers & Footers Free - No Watermark | Paperlab",
   description:
     "Add headers and footers to PDF pages. No watermark, no upload, no sign-up.",
 };

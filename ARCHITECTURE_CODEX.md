@@ -20,7 +20,7 @@ No ads, no paywalls
 Feels fast, frictionless, and polished
 
 Design north star: Think Notion meets Apple Human Interface Guidelines. Every pixel has a reason. No decoration for decoration's sake. White space is a feature.
-Project codename: purelab 
+Project codename: paperlab 
 
 **Tech stack:**
 - Next.js 15, App Router, TypeScript
@@ -144,7 +144,7 @@ Never full-screen modals unless mobile
 ## FILE STRUCTURE (full reference)
 
 ```
-purelab/
+paperlab/
 ├── app/
 │   ├── layout.tsx
 │   ├── page.tsx
@@ -256,7 +256,7 @@ Read ARCHITECTURE_CODEX.md in this repo.
 Do Task 1 only. Do not build any components or pages yet.
 
 1. Initialize a Next.js 15 project with TypeScript, Tailwind CSS v4, and App Router. 
-   Project name: purelab
+   Project name: paperlab
 
 2. Install all dependencies:
    npm install framer-motion lucide-react pdf-lib pdfjs-dist tesseract.js mammoth xlsx jspdf @google/generative-ai react-dropzone clsx tailwind-merge
@@ -270,7 +270,7 @@ Do Task 1 only. Do not build any components or pages yet.
 4. Set up app/layout.tsx with:
    - Geist and Geist_Mono from next/font/google
    - Apply fonts as CSS variables --font-sans and --font-mono
-   - metadata: title "Purelab — Free PDF Tools, No Watermark", description "46 free PDF tools. No watermark. No upload. No sign-up. Files never leave your device."
+   - metadata: title "Paperlab — Free PDF Tools, No Watermark", description "46 free PDF tools. No watermark. No upload. No sign-up. Files never leave your device."
    - Import globals.css
 
 5. Set up next.config.js:
@@ -633,13 +633,13 @@ Also export categories array: [{id:'all',label:'All tools'}, {id:'organize',labe
 2. components/layout/Navbar.tsx
    - Sticky top, bg-white/80 backdrop-blur-md, border-b border-[#E4E4E7]
    - Max-width container mx-auto max-w-6xl px-4 py-3
-   - Left: small square logo div (h-6 w-6 rounded-[6px] bg-[#2563EB]) + "purelab" text-sm font-semibold
+   - Left: small square logo div (h-6 w-6 rounded-[6px] bg-[#2563EB]) + "paperlab" text-sm font-semibold
    - Right: green dot (h-1.5 w-1.5 rounded-full bg-green-400) + "Files never leave your device" text-xs text-zinc-400
    - No navigation links. No hamburger menu. Just these two elements.
 
 3. components/layout/Footer.tsx
    - Minimal: border-t border-[#E4E4E7], py-6, text-xs text-zinc-400 text-center
-   - "© 2025 purelab · Free PDF tools, forever · Files never leave your device"
+   - "© 2025 paperlab · Free PDF tools, forever · Files never leave your device"
 
 4. components/home/Hero.tsx
    - py-16 px-4 text-center
@@ -695,7 +695,7 @@ Do Task 7 only. Build the tool route group layout and first 6 tools.
    - Wrap children in: <div className="min-h-screen flex flex-col"><Navbar /><main className="flex-1">{children}</main><Footer /></div>
 
 2. app/(tools)/merge-pdf/page.tsx
-   metadata: title "Merge PDF Free — No Watermark | Purelab", description "Combine multiple PDF files into one. No watermark, no upload, no sign-up."
+   metadata: title "Merge PDF Free — No Watermark | Paperlab", description "Combine multiple PDF files into one. No watermark, no upload, no sign-up."
    Tool: 'use client', use usePdfTool({ multiple: true })
    ToolShell: icon=FilePlus2, title="Merge PDF", description="Combine multiple PDFs into one. Drag to reorder before merging."
    Dropzone: accept={{'application/pdf':['.pdf']}}, multiple, label="Drop PDF files here", sublabel="Select 2 or more files"
@@ -704,13 +704,13 @@ Do Task 7 only. Build the tool route group layout and first 6 tools.
    Processing: dynamic import pdf-lib, call mergePdfs(), output filename "merged.pdf"
 
 3. app/(tools)/split-pdf/page.tsx
-   metadata: title "Split PDF Free — Extract Pages | Purelab"
+   metadata: title "Split PDF Free — Extract Pages | Paperlab"
    Tool: single file upload
    Options UI: radio group — "Extract all pages" / "Extract page range" (shows Input for "Pages e.g. 1-3, 5, 7-9")
    Processing: parse page range input, call splitPdf(), if multiple outputs zip them with JSZip (install JSZip), download as split.zip. If single output download directly.
 
 4. app/(tools)/compress-pdf/page.tsx
-   metadata: title "Compress PDF Free — Reduce File Size | Purelab"
+   metadata: title "Compress PDF Free — Reduce File Size | Paperlab"
    Tool: single file upload
    Options: Slider or radio for level — Light / Medium / Heavy with description text for each
    Shows original file size after upload (formatBytes)
@@ -718,21 +718,21 @@ Do Task 7 only. Build the tool route group layout and first 6 tools.
    Processing: call compressPdf() with selected level
 
 5. app/(tools)/rotate-pdf/page.tsx
-   metadata: title "Rotate PDF Free | Purelab"
+   metadata: title "Rotate PDF Free | Paperlab"
    Tool: single file upload
    Options: 4 buttons for 90° / 180° / 270° / Custom per-page
    Simple version: rotate all pages by selected degrees
    Processing: call rotatePdf()
 
 6. app/(tools)/pdf-to-jpg/page.tsx
-   metadata: title "PDF to JPG Free — No Watermark | Purelab"
+   metadata: title "PDF to JPG Free — No Watermark | Paperlab"
    Tool: single file upload
    Options: DPI select (72 / 150 / 300) — default 150
    After processing: show image thumbnails grid, "Download all as ZIP" button
    Processing: call pdfToJpgBlobs(), zip with JSZip, download as pdf-images.zip
 
 7. app/(tools)/jpg-to-pdf/page.tsx
-   metadata: title "Images to PDF Free | Purelab"
+   metadata: title "Images to PDF Free | Paperlab"
    Tool: multiple file upload, accept jpg/png
    Shows image previews in FileList
    Processing: call imagesToPdf() from lib/convert/images-to-pdf.ts
@@ -981,7 +981,7 @@ Do Task 12 only. Final polish pass.
    Use: whileInView={{opacity:1,y:0}} initial={{opacity:0,y:8}} viewport={{once:true,margin:'-50px'}}
 
 3. SEO metadata for every tool page
-   Pattern: title "[Tool Name] Free — No Watermark | Purelab", description one sentence about what it does + "No watermark, no upload, no sign-up."
+   Pattern: title "[Tool Name] Free — No Watermark | Paperlab", description one sentence about what it does + "No watermark, no upload, no sign-up."
    Add this metadata export to every single tool page that doesn't have it yet.
 
 4. Sitemap

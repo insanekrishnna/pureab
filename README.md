@@ -1,4 +1,4 @@
-# Purelab
+# Paperlab
 
 Premium, local-first PDF tools with no watermark, no upload, and no sign-up.
 
