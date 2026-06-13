@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import { cn } from "@/lib/utils/cn";
 
 type BrandLogoProps = {
@@ -10,14 +9,12 @@ type BrandLogoProps = {
 export function BrandLogo({ className, priority = false }: BrandLogoProps) {
   return (
     <Image
-      src="/paperlab-logo.png"
-      alt=""
-      width={64}
-      height={64}
-      quality={100}
+      src="/pure.png"
+      alt="Purelab Logo"
+      width={96}
+      height={96}
+      className={cn("object-contain", className)}
       priority={priority}
-      className={cn("h-7 w-7 object-contain", className)}
-      aria-hidden="true"
     />
   );
 }

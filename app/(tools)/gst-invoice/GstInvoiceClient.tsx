@@ -91,7 +91,7 @@ export function GstInvoiceClient() {
   }
 
   return (
-    <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 py-8 lg:grid-cols-[420px_1fr]">
+    <div className="mx-auto grid w-full max-w-7xl gap-6 px-3 py-8 sm:px-5 lg:grid-cols-[420px_1fr]">
       <div className="space-y-3">
         <Button
           className="w-full lg:hidden"
@@ -125,7 +125,7 @@ export function GstInvoiceClient() {
         <Section title="Line Items" id="items" open={open} onOpen={setOpen}>
           <div className="space-y-3">
             {items.map((item) => (
-              <div key={item.id} className="space-y-2 rounded-[10px] border border-border bg-bg-subtle p-3">
+              <div key={item.id} className="soft-panel space-y-2 rounded-lg p-3">
                 <Input label="Description" value={item.description} onChange={(event) => updateItem(item.id, { description: event.target.value }, setItems)} />
                 <div className="grid grid-cols-2 gap-2">
                   <Input label="HSN/SAC" value={item.hsn} onChange={(event) => updateItem(item.id, { hsn: event.target.value }, setItems)} />
@@ -133,7 +133,7 @@ export function GstInvoiceClient() {
                   <Input label="Qty" type="number" value={item.qty} onChange={(event) => updateItem(item.id, { qty: Number(event.target.value) }, setItems)} />
                   <Input label="Rate" type="number" value={item.rate} onChange={(event) => updateItem(item.id, { rate: Number(event.target.value) }, setItems)} />
                   <Select label="GST" value={String(item.gst)} onChange={(gst) => updateItem(item.id, { gst: Number(gst) }, setItems)} options={[0, 5, 12, 18, 28].map((gst) => ({ value: String(gst), label: `${gst}%` }))} />
-                  <div className="flex items-end justify-between rounded-[10px] bg-bg-elevated px-3 py-2 text-sm font-medium text-text-primary">
+                  <div className="field-surface flex items-end justify-between rounded-md px-3 py-2 text-sm font-medium text-text-primary">
                     {money(item.qty * item.rate)}
                     <button type="button" onClick={() => setItems((current) => current.filter((row) => row.id !== item.id))} className="text-text-muted hover:text-error" aria-label="Remove row">
                       <Trash2 className="h-4 w-4" />
@@ -148,7 +148,7 @@ export function GstInvoiceClient() {
           </div>
         </Section>
         <Section title="Notes" id="notes" open={open} onOpen={setOpen}>
-          <textarea value={notes} onChange={(event) => setNotes(event.target.value)} className="h-28 w-full resize-none rounded-[10px] border border-border bg-bg-elevated p-3 text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/10" />
+          <textarea value={notes} onChange={(event) => setNotes(event.target.value)} className="field-surface h-28 w-full resize-none rounded-md p-3 text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15" />
         </Section>
       </div>
       <div
@@ -172,7 +172,7 @@ function Section({ title, id, open, onOpen, children }: { title: string; id: str
   const active = open === id;
 
   return (
-    <section className="rounded-[14px] border border-border bg-bg-elevated">
+    <section className="glass-card overflow-hidden rounded-lg">
       <button type="button" onClick={() => onOpen(active ? "" : id)} className="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold text-text-primary">
         {title}
         <ChevronDown className={cn("h-4 w-4 transition-transform", active && "rotate-180")} />

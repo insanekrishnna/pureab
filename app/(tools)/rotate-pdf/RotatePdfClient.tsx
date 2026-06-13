@@ -41,9 +41,9 @@ export function RotatePdfClient() {
               type="button"
               onClick={() => setDegrees(rotation)}
               className={cn(
-                "rounded-[10px] border px-3 py-2 text-sm font-medium transition-all duration-150 ease-out",
+                "rounded-md border px-3 py-2.5 text-sm font-medium shadow-sm transition-all duration-150 ease-out",
                 degrees === rotation
-                  ? "border-accent bg-accent text-white"
+                  ? "border-accent bg-accent text-accent-foreground"
                   : "border-border bg-bg-elevated text-text-secondary hover:border-border-hover",
               )}
             >
@@ -53,7 +53,7 @@ export function RotatePdfClient() {
           <button
             type="button"
             disabled
-            className="rounded-[10px] border border-border bg-bg-subtle px-3 py-2 text-sm font-medium text-text-muted opacity-70"
+            className="rounded-md border border-border bg-bg-subtle px-3 py-2.5 text-sm font-medium text-text-muted opacity-70"
           >
             Custom
           </button>

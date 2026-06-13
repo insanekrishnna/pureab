@@ -35,9 +35,9 @@ export function FileDropzone({
       <div
         {...rootProps}
         className={cn(
-          "flex min-h-[180px] cursor-pointer items-center justify-center rounded-[14px] border-2 border-dashed border-border bg-bg-subtle p-6 text-center transition-all duration-150 ease-out sm:min-h-[220px]",
-          "hover:border-border-hover hover:bg-bg-elevated focus:outline-none focus:ring-2 focus:ring-accent/10",
-          isDragActive && "border-border-hover bg-bg-elevated",
+          "soft-panel flex min-h-[180px] cursor-pointer items-center justify-center rounded-lg border border-dashed p-6 text-center transition-all duration-150 ease-out sm:min-h-[220px]",
+          "hover:border-border-hover hover:bg-bg-elevated focus:outline-none focus:ring-2 focus:ring-accent/15",
+          isDragActive && "border-accent bg-accent-subtle",
           className,
         )}
       >
@@ -52,10 +52,10 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-3"
             >
-              <span className="frost-icon-surface rounded-full p-3">
+              <span className="frost-icon-surface rounded-md p-3">
                 <Upload className="h-6 w-6" aria-hidden="true" />
               </span>
-              <span className="text-sm font-medium text-text-primary">
+              <span className="mono-copy text-sm font-medium text-text-primary">
                 Release to upload
               </span>
             </motion.div>
@@ -68,13 +68,13 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-2"
             >
-              <span className="frost-icon-surface rounded-[12px] p-3">
+              <span className="frost-icon-surface rounded-md p-3">
                 <FileText className="h-7 w-7" aria-hidden="true" />
               </span>
-              <span className="text-sm font-medium text-text-primary">
+              <span className="mono-copy text-sm font-medium text-text-primary">
                 {label}
               </span>
-              <span className="text-xs text-text-muted">{sublabel}</span>
+              <span className="mono-copy text-xs text-text-muted">{sublabel}</span>
             </motion.div>
           )}
         </AnimatePresence>

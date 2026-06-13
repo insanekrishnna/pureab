@@ -18,7 +18,7 @@ export function PdfToWordClient() {
       <div className="space-y-5">
         <FileDropzone accept={{ "application/pdf": [".pdf"] }} onDrop={tool.onDrop} label="Drop a PDF file here" sublabel="Select one PDF" />
         {tool.files.length > 0 ? <FileList files={tool.files} onRemove={tool.removeFile} /> : null}
-        <p className="rounded-[10px] border border-border bg-bg-subtle p-3 text-xs text-text-secondary">Formatting may vary. Complex layouts work best with copy-paste.</p>
+        <p className="soft-panel rounded-md p-3 text-xs text-text-secondary">Formatting may vary. Complex layouts work best with copy-paste.</p>
         {tool.error ? <p className="text-sm font-medium text-error">{tool.error}</p> : null}
         {tool.result ? <DownloadCard blob={tool.result.blob} filename={tool.result.filename} onReset={tool.reset} /> : (
           <ProcessButton disabled={tool.files.length === 0} loading={loading} progress={tool.progress} onClick={() => tool.process(async ([file], onProgress) => {

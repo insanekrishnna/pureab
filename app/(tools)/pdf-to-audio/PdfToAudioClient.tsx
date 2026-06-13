@@ -47,11 +47,11 @@ export function PdfToAudioClient() {
       <div className="space-y-5">
         <FileDropzone accept={{ "application/pdf": [".pdf"] }} onDrop={tool.onDrop} label="Drop a PDF file here" sublabel="Select one PDF" />
         {tool.files.length > 0 ? <FileList files={tool.files} onRemove={tool.removeFile} /> : null}
-        <p className="rounded-[10px] border border-border bg-bg-subtle p-3 text-xs text-text-secondary">Audio uses your browser&apos;s built-in text-to-speech voices.</p>
+        <p className="soft-panel rounded-md p-3 text-xs text-text-secondary">Audio uses your browser&apos;s built-in text-to-speech voices.</p>
         {tool.error ? <p className="text-sm font-medium text-error">{tool.error}</p> : null}
         {text ? (
           <div className="space-y-4">
-            <div className="grid gap-3 rounded-[14px] border border-border bg-bg-elevated p-4 sm:grid-cols-2">
+            <div className="glass-card grid gap-3 rounded-lg p-4 sm:grid-cols-2">
               <Select label="Voice" value={voiceName} onChange={setVoiceName} options={voiceOptions.length ? voiceOptions : [{ value: "", label: "Default voice" }]} />
               <Slider label="Speed" min={0.5} max={2} step={0.1} value={rate} showValue onChange={setRate} />
               <Button icon={speaking ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />} onClick={() => {

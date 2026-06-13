@@ -38,7 +38,7 @@ export function AddWatermarkClient() {
         {tool.files.length > 0 ? (
           <FileList files={tool.files} onRemove={tool.removeFile} />
         ) : null}
-        <div className="space-y-4 rounded-[14px] border border-border bg-bg-elevated p-4">
+        <div className="glass-card space-y-4 rounded-lg p-4">
           <Input
             label="Watermark text"
             value={text}
@@ -77,10 +77,10 @@ export function AddWatermarkClient() {
                 type="button"
                 onClick={() => setPosition(item)}
                 className={cn(
-                  "rounded-full px-4 py-1.5 text-sm font-medium capitalize transition-all duration-150 ease-out",
+                  "rounded-md px-4 py-2 text-sm font-medium capitalize shadow-sm transition-all duration-150 ease-out",
                   position === item
-                    ? "bg-accent text-white"
-                    : "border border-border bg-bg-subtle text-text-secondary hover:border-border-hover",
+                    ? "bg-accent text-accent-foreground"
+                    : "section-label text-text-secondary hover:border-border-hover hover:text-text-primary",
                 )}
               >
                 {item}

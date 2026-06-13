@@ -54,14 +54,14 @@ export function SummarizePdfClient() {
         {tool.files.length > 0 ? (
           <FileList files={tool.files} onRemove={tool.removeFile} />
         ) : null}
-        <div className="space-y-2 rounded-[14px] border border-border bg-bg-elevated p-4">
+        <div className="glass-card space-y-2 rounded-lg p-4">
           {formats.map((option) => (
             <button
               key={option.id}
               type="button"
               onClick={() => setFormat(option.id)}
               className={cn(
-                "block w-full rounded-[10px] border px-3 py-2 text-left text-sm font-medium transition-all duration-150 ease-out",
+                "block w-full rounded-md border px-3 py-2.5 text-left text-sm font-medium shadow-sm transition-all duration-150 ease-out",
                 format === option.id
                   ? "border-accent bg-accent-subtle text-accent-text"
                   : "border-border bg-bg-elevated text-text-secondary hover:border-border-hover",

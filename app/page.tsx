@@ -34,12 +34,15 @@ export default function Home() {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-bg">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="mx-auto w-full max-w-6xl flex-1 px-4">
+      <main className="w-full flex-1">
         <Hero />
-        <section className="pb-16">
-          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <section
+          id="tools"
+          className="mx-auto max-w-5xl border-x border-border px-4 py-6 pb-16"
+        >
+          <div className="mb-5 grid gap-3 lg:grid-cols-[1fr_20rem] lg:items-start">
             <CategoryFilter
               active={activeCategory}
               onChange={setActiveCategory}
@@ -54,15 +57,15 @@ export default function Home() {
           </div>
 
           <div className="space-y-10">
-            <section>
-              <h2 className="mb-3 text-sm font-semibold text-text-primary">
+            <section id="featured-tools" className="scroll-mt-24">
+              <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
                 Featured tools
               </h2>
               <ToolGrid tools={featuredTools} />
             </section>
 
-            <section>
-              <h2 className="mb-3 text-sm font-semibold text-text-primary">
+            <section id="all-tools" className="scroll-mt-24">
+              <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
                 All tools
               </h2>
               <ToolGrid tools={filteredTools} />

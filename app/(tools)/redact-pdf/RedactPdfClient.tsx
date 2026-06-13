@@ -23,7 +23,7 @@ export function RedactPdfClient() {
       <div className="space-y-5">
         <FileDropzone accept={{ "application/pdf": [".pdf"] }} onDrop={tool.onDrop} label="Drop a PDF file here" sublabel="Select one PDF" />
         {tool.files.length > 0 ? <FileList files={tool.files} onRemove={tool.removeFile} /> : null}
-        <div className="space-y-3 rounded-[14px] border border-border bg-bg-elevated p-4">
+        <div className="glass-card space-y-3 rounded-lg p-4">
           <Input label="Text to redact" value={text} onChange={(event) => setText(event.target.value)} placeholder="Optional label for this redaction" />
           <p className="text-xs text-text-muted">For precise redaction, use our Edit PDF tool to manually blackout text.</p>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">

@@ -60,12 +60,12 @@ export function PdfPreview({ file, pageNum = 1, className }: PdfPreviewProps) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[10px] border border-border bg-bg-elevated p-2 shadow-sm",
+        "glass-card relative overflow-hidden rounded-lg p-2",
         className,
       )}
     >
       {loading ? (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-bg-elevated/80">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-bg-elevated">
           <Spinner />
         </div>
       ) : null}

@@ -15,7 +15,7 @@ export function Progress({ value, className }: ProgressProps) {
   return (
     <div
       className={cn(
-        "h-1.5 overflow-hidden rounded-full bg-bg-subtle",
+        "h-2 overflow-hidden rounded-full border border-border bg-bg-subtle shadow-sm",
         className,
       )}
       role="progressbar"
@@ -24,7 +24,7 @@ export function Progress({ value, className }: ProgressProps) {
       aria-valuenow={safeValue}
     >
       <motion.div
-        className="h-full rounded-full bg-accent"
+        className="h-full rounded-full bg-accent shadow-sm"
         initial={false}
         animate={{ width: `${safeValue}%` }}
         transition={{ duration: 0.2, ease: "easeOut" }}

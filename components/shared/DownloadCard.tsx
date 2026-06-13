@@ -19,14 +19,14 @@ export function DownloadCard({ blob, filename, onReset }: DownloadCardProps) {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.18, ease: "easeOut" }}
-      className="rounded-[14px] border border-success/20 bg-success-subtle p-6"
+      className="glass-card rounded-lg p-5"
     >
       <div className="flex items-start gap-4">
-        <span className="rounded-full bg-success p-2 text-white">
+        <span className="frost-icon-surface rounded-md p-2.5 text-success">
           <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
         </span>
         <div className="min-w-0 flex-1">
-          <h3 className="text-lg font-semibold text-text-primary">
+          <h3 className="mono-copy text-sm font-medium text-text-primary">
             Ready to download
           </h3>
           <p className="mt-1 truncate text-sm text-text-secondary">

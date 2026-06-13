@@ -16,11 +16,12 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "children" | "size
 
 const variants = {
   primary:
-    "bg-accent text-white shadow-sm hover:bg-accent-hover disabled:hover:bg-accent",
+    "border border-border bg-accent text-accent-foreground shadow-sm hover:bg-accent-hover disabled:hover:bg-accent",
   secondary:
-    "border border-border bg-bg-subtle text-text-primary hover:border-border-hover hover:bg-bg-elevated",
-  destructive: "bg-error text-white shadow-sm disabled:hover:bg-error",
-  ghost: "bg-transparent text-text-secondary hover:bg-bg-subtle hover:text-text-primary",
+    "border border-border bg-bg-subtle text-text-primary shadow-sm hover:border-border-hover hover:bg-bg-elevated",
+  destructive: "bg-error text-white shadow-md disabled:hover:bg-error",
+  ghost:
+    "bg-transparent text-text-secondary hover:bg-bg-subtle hover:text-text-primary",
 };
 
 const sizes = {
@@ -45,8 +46,8 @@ export function Button({
       whileTap={disabled || loading ? undefined : { scale: 0.98 }}
       disabled={disabled || loading}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-[10px] font-medium transition-all duration-150 ease-out",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/10 focus-visible:ring-offset-2",
+        "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-all duration-150 ease-out",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/15 focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
         "disabled:cursor-not-allowed disabled:opacity-70",
         variants[variant],
         sizes[size],

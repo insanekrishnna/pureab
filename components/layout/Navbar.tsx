@@ -5,12 +5,41 @@ import { NavbarActions } from "@/components/layout/NavbarActions";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg-elevated/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="flex items-center gap-2" aria-label="Purelab home">
+    <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur-sm">
+      <div className="mx-auto flex h-auto py-4 max-w-5xl items-center justify-between gap-3 border-x border-border px-4">
+        <Link
+          href="/"
+          className="flex min-w-0 items-center gap-2"
+          aria-label="Purelab home"
+        >
           <BrandLogo priority />
-          <span className="text-sm font-semibold text-text-primary">purelab</span>
+          <span className="hero-display truncate text-xl text-text-primary">
+            purelab
+          </span>
         </Link>
+        <nav
+          aria-label="Primary"
+          className="mono-copy hidden items-center gap-1 text-xs text-text-secondary md:flex"
+        >
+          <Link
+            href="/"
+            className="rounded-md px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary"
+          >
+            Home
+          </Link>
+          <Link
+            href="/#featured-tools"
+            className="rounded-md px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary"
+          >
+            Featured
+          </Link>
+          <Link
+            href="/#all-tools"
+            className="rounded-md px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary"
+          >
+            Tools
+          </Link>
+        </nav>
         <NavbarActions />
       </div>
     </header>

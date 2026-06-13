@@ -105,14 +105,14 @@ export function ComparePdfsClient() {
 
 function DiffColumn({ title, items }: { title: string; items: DiffItem[] }) {
   return (
-    <div className="max-h-96 overflow-y-auto rounded-[14px] border border-border bg-bg-elevated p-4">
+    <div className="glass-card max-h-96 overflow-y-auto rounded-lg p-4">
       <h2 className="mb-3 text-sm font-semibold text-text-primary">{title}</h2>
       <div className="space-y-2">
         {items.map((item, index) => (
           <p
             key={`${item.status}-${index}`}
             className={cn(
-              "rounded-[8px] px-3 py-2 text-sm leading-relaxed text-text-primary",
+              "rounded-md px-3 py-2 text-sm leading-relaxed text-text-primary",
               item.status === "added" && "bg-success-subtle",
               item.status === "removed" && "bg-error-subtle",
               item.status === "same" && "bg-bg-subtle",

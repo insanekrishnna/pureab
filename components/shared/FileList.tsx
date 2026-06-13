@@ -40,13 +40,13 @@ function FileIcon({ file }: { file: File }) {
       <img
         src={url}
         alt=""
-        className="h-9 w-9 shrink-0 rounded-[6px] border border-border object-cover"
+        className="h-10 w-10 shrink-0 rounded-md border border-border object-cover shadow-sm"
       />
     );
   }
 
   return (
-    <span className="frost-icon-surface flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px]">
+    <span className="frost-icon-surface flex h-10 w-10 shrink-0 items-center justify-center rounded-md">
       <FileText className="h-5 w-5" aria-hidden="true" />
     </span>
   );
@@ -79,7 +79,7 @@ export function FileList({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -4 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
-      className="flex items-center gap-3 rounded-[10px] border border-border bg-bg-elevated px-3 py-2.5 shadow-sm"
+      className="glass-card flex items-center gap-3 rounded-md px-3 py-2.5"
     >
       {reorderable ? (
         <GripVertical
@@ -92,15 +92,15 @@ export function FileList({
       ) : null}
       <FileIcon file={file} />
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-medium text-text-primary">
+        <p className="mono-copy truncate text-sm font-medium text-text-primary">
           {file.name}
         </p>
-        <p className="text-xs text-text-muted">{formatBytes(file.size)}</p>
+        <p className="mono-copy text-xs text-text-muted">{formatBytes(file.size)}</p>
       </div>
       <button
         type="button"
         onClick={() => onRemove(files.findIndex((item) => item === file))}
-        className="rounded-[6px] p-1 text-text-muted transition-all duration-150 ease-out hover:bg-bg-subtle hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/10"
+        className="rounded-full p-1.5 text-text-muted transition-all duration-150 ease-out hover:bg-bg-subtle hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/15"
         aria-label={`Remove ${file.name}`}
       >
         <X className="h-4 w-4" aria-hidden="true" />

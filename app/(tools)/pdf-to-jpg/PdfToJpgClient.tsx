@@ -59,7 +59,7 @@ export function PdfToJpgClient() {
                 key={url}
                 src={url}
                 alt={`Page ${index + 1}`}
-                className="aspect-[3/4] rounded-[10px] border border-border bg-bg-elevated object-cover"
+                className="aspect-[3/4] rounded-md border border-border bg-bg-elevated object-cover shadow-sm"
               />
             ))}
           </div>

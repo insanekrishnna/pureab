@@ -12,9 +12,9 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <section className="mx-auto max-w-2xl px-4 py-10">
-      <div className="rounded-[14px] border border-border bg-bg-elevated p-6 text-center">
-        <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-[10px] bg-error-subtle text-error">
+    <section className="mx-auto max-w-5xl border-x border-border px-4 py-8 sm:px-8">
+      <div className="glass-panel rounded-lg p-6 text-center">
+        <div className="frost-icon-surface mx-auto flex h-11 w-11 items-center justify-center rounded-md text-error">
           <AlertCircle className="h-5 w-5" aria-hidden="true" />
         </div>
         <h1 className="mt-4 text-xl font-semibold text-text-primary">

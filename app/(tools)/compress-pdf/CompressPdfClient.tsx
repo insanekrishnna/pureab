@@ -51,7 +51,7 @@ export function CompressPdfClient() {
               type="button"
               onClick={() => setLevel(option.id)}
               className={cn(
-                "rounded-[10px] border p-3 text-left transition-all duration-150 ease-out",
+                "rounded-md border p-3 text-left shadow-sm transition-all duration-150 ease-out",
                 level === option.id
                   ? "border-accent bg-accent-subtle"
                   : "border-border bg-bg-elevated hover:border-border-hover",

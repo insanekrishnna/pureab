@@ -103,7 +103,7 @@ export function ChatWithPdfClient() {
             <p className="text-sm text-text-secondary">Extracting text...</p>
           ) : null}
         </div>
-        <div className="flex min-h-[520px] flex-col rounded-[14px] border border-border bg-bg-elevated">
+        <div className="glass-card flex min-h-[520px] flex-col overflow-hidden rounded-lg">
           <div ref={scrollerRef} className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.length === 0 ? (
               <div className="flex h-full items-center justify-center text-sm text-text-muted">
@@ -120,10 +120,10 @@ export function ChatWithPdfClient() {
                 >
                   <div
                     className={cn(
-                      "max-w-[85%] rounded-[14px] px-3 py-2 text-sm leading-relaxed",
+                      "max-w-[85%] rounded-md px-3 py-2 text-sm leading-relaxed shadow-sm",
                       message.role === "user"
-                        ? "rounded-tr-[4px] bg-accent text-white"
-                        : "rounded-tl-[4px] bg-bg-subtle text-text-primary",
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-bg-subtle text-text-primary",
                     )}
                   >
                     {message.content ||
