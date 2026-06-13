@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { GlassIcon } from "@/components/ui/GlassIcon";
 import type { Tool } from "@/config/tools";
 
 interface ToolCardProps {
@@ -15,9 +16,7 @@ export function ToolCard({ tool }: ToolCardProps) {
       className="group relative block h-full min-h-[132px] border border-border bg-bg-elevated p-4 transition-all duration-150 ease-out hover:border-border-hover hover:bg-bg-subtle"
     >
       <div className="relative flex items-center gap-3">
-        <span className="frost-icon-surface rounded-md p-2">
-          <Icon className="h-5 w-5" aria-hidden="true" />
-        </span>
+        <GlassIcon icon={Icon} className="h-5 w-5 text-[#7b61ff]" aria-hidden="true" />
         <h3 className="mono-copy min-w-0 truncate text-sm font-medium text-text-primary">
           {tool.name}
         </h3>

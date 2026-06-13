@@ -28,9 +28,9 @@ export function ToolShell({
             All tools
           </Link>
           <header className="mt-7 flex items-start gap-3">
-            <span className="frost-icon-surface rounded-md p-3">
+            <div className="mt-1">
               {icon}
-            </span>
+            </div>
             <div className="min-w-0">
               <h1 className="text-2xl font-semibold leading-tight text-text-primary">
                 {title}
