@@ -7,12 +7,17 @@ import { GlassIcon } from "@/components/ui/GlassIcon";
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-bg-base pt-16 text-sm text-text-muted">
+      {/* Subtle Background Pattern */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex justify-center opacity-50">
+        <div className="w-full max-w-5xl bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]" />
+      </div>
+
       {/* Large Background Text */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/4 select-none text-[15vw] font-bold uppercase leading-none text-text-primary/[0.02]">
+      <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 -translate-x-1/2 translate-y-[25%] select-none text-[13vw] font-black uppercase leading-none text-text-primary/[0.02] tracking-tighter">
         Purelab
       </div>
 
-      <div className="mx-auto max-w-5xl border-x border-border">
+      <div className="relative z-10 mx-auto max-w-5xl border-x border-border">
         {/* CTA Banner Section */}
         <div className="mx-4 mb-16 rounded-2xl bg-gradient-to-br from-[#7b61ff]/10 to-transparent p-1 border border-[#7b61ff]/20 text-center sm:mx-8 sm:text-left">
           <div className="rounded-xl bg-bg-elevated px-8 py-12 sm:p-16 relative overflow-hidden">
@@ -47,7 +52,7 @@ export function Footer() {
               aria-label="Purelab home"
             >
               <BrandLogo className="h-16 w-16" />
-              <span className="hero-display text-2xl text-text-primary -ml-3">purelab</span>
+              <span className="hero-display text-2xl text-text-primary -ml-3">Paperlab</span>
             </Link>
           </div>
 
@@ -83,8 +88,20 @@ export function Footer() {
         </div>
         
         {/* Bottom Copyright */}
-        <div className="mt-16 border-t border-border px-8 py-6 text-center text-xs text-text-muted">
-           &copy; {new Date().getFullYear()} purelab &middot; Free PDF tools, forever.
+        <div className="relative mt-10 border-t border-border px-8 py-6 flex flex-col items-center justify-between gap-4 text-xs text-text-muted sm:flex-row bg-bg-base/80 backdrop-blur-sm">
+          {/* Minimal design accents */}
+          <div className="absolute -top-[5px] left-4 select-none text-[10px] leading-none text-text-muted/40">+</div>
+          <div className="absolute -top-[5px] right-4 select-none text-[10px] leading-none text-text-muted/40">+</div>
+          <div className="absolute -top-[1px] left-1/2 h-[2px] w-8 -translate-x-1/2 bg-border" />
+          
+          <div>
+            &copy; {new Date().getFullYear()} purelab &middot; Free PDF tools, forever.
+          </div>
+          
+          <div className="flex items-center gap-2">
+             <div className="h-1.5 w-1.5 rounded-full bg-[#7b61ff]/60" />
+             <span>All systems operational</span>
+          </div>
         </div>
       </div>
     </footer>

@@ -45,9 +45,9 @@ export function Hero() {
       <div className="relative isolate min-h-[500px] overflow-hidden border-b border-border px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="linework pointer-events-none absolute inset-0 opacity-70" />
         {/* Impressive Document Graphic */}
-        <div className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 lg:block w-[500px]">
+        <div className="pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 lg:block w-[500px]">
            {/* The 3 Documents */}
-           <div className="relative h-[450px] w-full">
+           <div className="relative h-[450px] w-full scale-[0.7] origin-right">
              
              {/* Left Document */}
              <div 
