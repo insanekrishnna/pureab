@@ -9,6 +9,7 @@ import {
   Layers2,
   Shield,
   Star,
+  PenLine,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -35,11 +36,78 @@ const featureCards = [
 
 const trustBadges = [
   { label: "No watermark", icon: CheckCircle2 },
-  { label: "Files stay local", icon: Shield },
+  { label: "Sign pdfs", icon: PenLine },
   { label: "46 tools", icon: Layers2 },
 ];
 
+const DocumentMockup = ({ className }: { className?: string }) => {
+  return (
+    <div className={`absolute w-[200px] h-[280px] sm:w-[240px] sm:h-[320px] drop-shadow-md ${className}`}>
+      {/* Document Base */}
+      <div 
+        className="absolute inset-0 bg-white"
+        style={{ 
+          clipPath: 'polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%)',
+          borderRadius: '12px'
+        }}
+      />
+      
+      {/* Folded Corner */}
+      <div 
+        className="absolute top-0 right-0 w-[60px] h-[60px] bg-[#6366f1] rounded-bl-2xl shadow-sm"
+        style={{ clipPath: 'polygon(0 0, 0 100%, 100% 100%)' }}
+      />
+      
+      {/* Content */}
+      <div className="relative z-10 p-5 sm:p-6 flex flex-col gap-3 mt-1">
+        <div className="w-2/5 h-2.5 sm:h-3 bg-[#818cf8] rounded-full" />
+        <div className="w-3/4 h-2 sm:h-2.5 bg-neutral-200 rounded-full" />
+        
+        <div className="mt-3 flex flex-col gap-2.5">
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-11/12 h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-4/5 h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-5/6 h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+        </div>
 
+        {/* Squiggly line */}
+        <div className="mt-4 sm:mt-5 self-end mr-4">
+          <svg width="40" height="14" viewBox="0 0 50 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-[50px] sm:h-[16px]">
+            <path d="M2 10C8 10 12 2 18 2C24 2 28 14 34 14C40 14 44 6 48 6" stroke="#818cf8" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        </div>
+      </div>
+      
+      {/* Light border overlay on the square edges */}
+      <div 
+        className="absolute inset-0 border border-neutral-200/50 pointer-events-none"
+        style={{ 
+          clipPath: 'polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%)',
+          borderRadius: '12px'
+        }}
+      />
+    </div>
+  )
+}
+
+const HeroDocsMockup = () => {
+  return (
+    <div className="relative w-full max-w-[500px] h-[350px] sm:h-[450px] flex items-center justify-center scale-[0.65] translate-y-[25%] -translate-x-[15%]">
+      {/* Left Document */}
+      <DocumentMockup className="z-0 -translate-x-[35%] sm:-translate-x-[45%] translate-y-[15%] -rotate-[15deg] scale-90 opacity-95" />
+      
+      {/* Right Document */}
+      <DocumentMockup className="z-0 translate-x-[35%] sm:translate-x-[45%] translate-y-[10%] rotate-[12deg] scale-90 opacity-95" />
+      
+      {/* Center Document */}
+      <DocumentMockup className="z-10 drop-shadow-lg scale-[1.05]" />
+    </div>
+  );
+};
 
 export function Hero() {
   return (
@@ -50,7 +118,7 @@ export function Hero() {
         </div>
 
         {/* Left Side Content */}
-        <div className="z-10 flex flex-1 flex-col gap-4">
+        <div className="z-10 flex w-full flex-col gap-4 md:w-[65%] lg:w-[70%]">
           <div className="flex flex-row items-center gap-2 px-6">
             <span className="section-label px-2.5 py-1 text-xs">
               <Star className="h-3.5 w-3.5 fill-[oklch(0.795_0.184_86.047)] text-[oklch(0.795_0.184_86.047)]" />
@@ -63,8 +131,8 @@ export function Hero() {
 
           <div className="hero-display flex flex-col gap-2 px-6 text-6xl sm:text-7xl">
             <h1 className="text-text-secondary">
-              Everything your PDFs need, <br />
-              <span className="text-text-primary">in one click.</span>
+              <span className="whitespace-nowrap text-balance sm:whitespace-nowrap">Everything your PDFs need,</span> <br />
+              <span className="text-text-primary whitespace-nowrap">in one click.</span>
             </h1>
           </div>
 
@@ -144,13 +212,8 @@ export function Hero() {
         </div>
 
         {/* Right Side Image */}
-        <div className="z-10 hidden flex-1 items-center justify-center p-8 md:flex relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-accent/30 rounded-full blur-[80px] pointer-events-none" />
-          <img
-            src="/doc.png"
-            alt="PDF Features"
-            className="w-full max-w-[360px] object-contain"
-          />
+        <div className="z-10 hidden w-full items-center justify-center p-8 md:flex md:w-[35%] lg:w-[30%] relative">
+          <HeroDocsMockup />
         </div>
       </div>
 
