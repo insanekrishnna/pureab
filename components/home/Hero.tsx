@@ -198,17 +198,6 @@ export function Hero() {
             No watermark. No upload. No sign-up. Your files never leave your browser.
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-2 px-6">
-            {trustBadges.map((badge) => {
-              const Icon = badge.icon;
-              return (
-                <span key={badge.label} className="section-label px-2.5 py-1 text-xs">
-                  <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-                  {badge.label}
-                </span>
-              );
-            })}
-          </div>
         </div>
 
         {/* Right Side Image */}
