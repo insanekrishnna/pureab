@@ -96,7 +96,7 @@ const DocumentMockup = ({ className }: { className?: string }) => {
 
 const HeroDocsMockup = () => {
   return (
-    <div className="relative w-full max-w-[500px] h-[350px] sm:h-[450px] flex items-center justify-center scale-[0.65] translate-y-[25%] -translate-x-[15%]">
+    <div className="relative w-full max-w-[500px] h-[350px] sm:h-[450px] flex items-center justify-center scale-[0.58] translate-y-[15%] -translate-x-[15%]">
       {/* Left Document */}
       <DocumentMockup className="z-0 -translate-x-[35%] sm:-translate-x-[45%] translate-y-[15%] -rotate-[15deg] scale-90 opacity-95" />
       
