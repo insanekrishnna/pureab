@@ -15,7 +15,7 @@ import Link from "next/link";
 
 const featureCards = [
   {
-    label: "Beautiful",
+    label: "Clean",
     description:
       "Clean PDF workflows with focused controls, clear outputs, and no visual clutter.",
     icon: FileText,
@@ -194,8 +194,8 @@ export function Hero() {
             </div>
           </div>
 
-          <p className="mono-copy mt-2 max-w-xl px-6 text-sm leading-6 text-text-secondary">
-            No watermark. No upload. No sign-up. Your files never leave your browser.
+          <p className="mono-copy mt-6 max-w-xl px-6 text-sm leading-6 text-text-secondary">
+            No watermark. No upload. No sign-up. <br /> Your files never leave your browser.
           </p>
 
         </div>
