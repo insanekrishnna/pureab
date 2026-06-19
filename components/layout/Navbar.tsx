@@ -9,11 +9,11 @@ export function Navbar() {
       <div className="mx-auto flex h-[51px] max-w-5xl items-center justify-between gap-3 border-x border-dashed border-border px-3 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="flex min-w-0 flex-row items-center gap-2 py-3 text-text-primary transition-colors hover:text-text-primary/80"
+          className="flex min-w-0 flex-row items-center py-3 text-text-primary transition-colors hover:text-text-primary/80"
           aria-label="Paperlab home"
         >
-          <BrandLogo priority />
-          <span className="hero-display truncate text-xl font-bold text-text-primary">
+          <BrandLogo priority className="-mr-4" />
+          <span className="hero-display truncate text-xl font-black text-text-primary">
             Paperlab
           </span>
         </Link>
