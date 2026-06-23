@@ -45,7 +45,7 @@ const DocumentMockup = ({ className }: { className?: string }) => {
     <div className={`absolute w-[200px] h-[280px] sm:w-[240px] sm:h-[320px] drop-shadow-md ${className}`}>
       {/* Document Base */}
       <div 
-        className="absolute inset-0 bg-white"
+        className="absolute inset-0 bg-white [[data-theme=dark]_&]:bg-neutral-200"
         style={{ 
           clipPath: 'polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 0 100%)',
           borderRadius: '12px'
@@ -61,17 +61,17 @@ const DocumentMockup = ({ className }: { className?: string }) => {
       {/* Content */}
       <div className="relative z-10 p-5 sm:p-6 flex flex-col gap-3 mt-1">
         <div className="w-2/5 h-2.5 sm:h-3 bg-[#818cf8] rounded-full" />
-        <div className="w-3/4 h-2 sm:h-2.5 bg-neutral-200 rounded-full" />
+        <div className="w-3/4 h-2 sm:h-2.5 bg-neutral-200 [[data-theme=dark]_&]:bg-neutral-300 rounded-full" />
         
         <div className="mt-3 flex flex-col gap-2.5">
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
-          <div className="w-11/12 h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
-          <div className="w-4/5 h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
-          <div className="w-5/6 h-2 sm:h-2.5 bg-neutral-100 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-11/12 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-4/5 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-5/6 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
         </div>
 
         {/* Squiggly line */}
