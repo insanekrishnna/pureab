@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -110,6 +112,19 @@ const HeroDocsMockup = () => {
 };
 
 export function Hero() {
+  const [stars, setStars] = useState<number | string>(2);
+
+  useEffect(() => {
+    fetch("https://api.github.com/repos/insanekrishnna/pureab")
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.stargazers_count === "number") {
+          setStars(data.stargazers_count);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch GitHub stars:", err));
+  }, []);
+
   return (
     <section className="mx-auto max-w-5xl border-x border-dashed border-border">
       <div className="relative flex min-h-[calc(100svh-64px-150px)] flex-col md:flex-row items-center overflow-hidden border-b border-dashed border-border py-16 lg:py-0">
@@ -122,7 +137,7 @@ export function Hero() {
           <div className="flex flex-row items-center gap-2 px-6">
             <span className="section-label px-2.5 py-1 text-xs">
               <Star className="h-3.5 w-3.5 fill-[oklch(0.795_0.184_86.047)] text-[oklch(0.795_0.184_86.047)]" />
-              46
+              {stars}
             </span>
             <div className="flex flex-row items-center">
               <div className="from-border h-px w-40 bg-gradient-to-r to-transparent" />
