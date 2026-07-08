@@ -54,7 +54,6 @@ export function Hero() {
               46
             </span>
             <div className="flex flex-row items-center">
-              <div className="bg-border h-1.5 w-1.5 border" />
               <div className="from-border h-px w-40 bg-gradient-to-r to-transparent" />
             </div>
           </div>
