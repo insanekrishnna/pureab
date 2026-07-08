@@ -41,108 +41,36 @@ const trustBadges = [
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-5xl border-x border-border">
-      <div className="relative isolate min-h-[500px] overflow-hidden border-b border-border px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
-        <div className="linework pointer-events-none absolute inset-0 opacity-70" />
-        {/* Impressive Document Graphic */}
-        <div className="pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 lg:block w-[500px]">
-           {/* The 3 Documents */}
-           <div className="relative h-[450px] w-full scale-[0.7] origin-right">
-             
-             {/* Left Document */}
-             <div 
-               className="absolute left-8 top-70 h-40 w-30 rounded-lg bg-bg-elevated p-4 border border-border overflow-hidden"
-               style={{ transform: "rotate(-14deg)" }}
-             >
-               {/* Folded corner */}
-               <div className="absolute right-0 top-0 h-12 w-12 bg-bg-base" />
-               <div className="absolute right-0 top-0 h-12 w-12 rounded-bl-lg bg-gradient-to-br from-[#7b61ff] to-[#4c36cc]" style={{ clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
-               
-               {/* Mock Content */}
-               <div className="mt-5 space-y-2 opacity-50">
-                 <div className="h-1.5 w-16 rounded-full bg-[#7b61ff]" />
-                 <div className="h-1 w-24 rounded-full bg-border" />
-                 <div className="mt-4 space-y-1.5">
-                   {[...Array(6)].map((_, i) => (
-                     <div key={i} className="h-1 w-full rounded-full bg-text-muted/30" />
-                   ))}
-                 </div>
-               </div>
-               {/* Signature */}
-               <div className="absolute bottom-4 right-4 h-6 w-12 opacity-40">
-                 <svg viewBox="0 0 100 50" className="stroke-[#7b61ff] stroke-2 fill-none"><path d="M10 40 Q 30 10, 50 30 T 90 20"/></svg>
-               </div>
-             </div>
-
-             {/* Right Document */}
-             <div 
-               className="absolute right-8 top-70 h-40 w-30 rounded-lg bg-bg-elevated p-4 border border-border overflow-hidden"
-               style={{ transform: "rotate(14deg)" }}
-             >
-               <div className="absolute right-0 top-0 h-12 w-12 bg-bg-base" />
-               <div className="absolute right-0 top-0 h-12 w-12 rounded-bl-lg bg-gradient-to-br from-[#7b61ff] to-[#4c36cc]" style={{ clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
-               
-               <div className="mt-5 space-y-2 opacity-50">
-                 <div className="h-1.5 w-16 rounded-full bg-[#7b61ff]" />
-                 <div className="h-1 w-24 rounded-full bg-border" />
-                 <div className="mt-4 space-y-1.5">
-                   {[...Array(6)].map((_, i) => (
-                     <div key={i} className="h-1 w-full rounded-full bg-text-muted/30" />
-                   ))}
-                 </div>
-               </div>
-               <div className="absolute bottom-4 right-4 h-6 w-12 opacity-40">
-                 <svg viewBox="0 0 100 50" className="stroke-[#7b61ff] stroke-2 fill-none"><path d="M10 40 Q 30 10, 50 30 T 90 20"/></svg>
-               </div>
-             </div>
-
-             {/* Center Document (Top) */}
-             <div 
-               className="absolute left-1/2 top-40 z-10 h-75 w-58 -translate-x-1/2 rounded-xl bg-bg-elevated p-6 border border-border overflow-hidden"
-             >
-               <div className="absolute right-0 top-0 h-16 w-16 bg-bg-base" />
-               <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-xl bg-gradient-to-br from-[#7b61ff] to-[#4c36cc]" style={{ clipPath: "polygon(0 0, 100% 100%, 0 100%)" }} />
-               
-               <div className="mt-6 space-y-2 opacity-80">
-                 <div className="h-2 w-20 rounded-full bg-[#7b61ff]" />
-                 <div className="h-1.5 w-32 rounded-full bg-border" />
-                 <div className="h-1.5 w-24 rounded-full bg-border" />
-                 <div className="mt-6 space-y-2.5">
-                   {[...Array(8)].map((_, i) => (
-                     <div key={i} className="h-1.5 w-full rounded-full bg-text-muted/30" />
-                   ))}
-                 </div>
-               </div>
-               <div className="absolute bottom-6 right-6 h-10 w-20 opacity-60">
-                 <svg viewBox="0 0 100 50" className="stroke-[#7b61ff] stroke-2 fill-none"><path d="M10 40 Q 30 10, 50 30 T 90 20"/></svg>
-               </div>
-             </div>
-             
-           </div>
+    <section className="mx-auto max-w-5xl border-x border-dashed border-border">
+      <div className="relative flex min-h-[calc(100svh-64px-150px)] flex-row items-center overflow-hidden border-b border-dashed border-border py-16 lg:py-0">
+        <div className="absolute inset-0 h-full w-full overflow-hidden">
+          <div className="linework pointer-events-none absolute inset-0 opacity-70" />
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.22, ease: "easeOut" }}
-          className="relative z-10 max-w-2xl"
-        >
-          <span className="section-label px-2.5 py-1 text-xs">
-            <Star className="h-3.5 w-3.5 fill-[oklch(0.795_0.184_86.047)] text-[oklch(0.795_0.184_86.047)]" />
-            46
-          </span>
-          <h1 className="hero-display mt-8 max-w-3xl text-6xl leading-[0.92] text-text-primary sm:text-7xl">
-            Everything your PDFs need, in one click.
-          </h1>
-          <p className="mono-copy mt-6 max-w-xl text-sm leading-6 text-text-secondary">
-            No watermark. No upload. No sign-up. Your files never leave your
-            browser.
-          </p>
-          <div className="mt-8 flex flex-row gap-4">
+        <div className="z-10 flex flex-col gap-4">
+          <div className="flex flex-row items-center gap-2 px-6">
+            <span className="section-label px-2.5 py-1 text-xs">
+              <Star className="h-3.5 w-3.5 fill-[oklch(0.795_0.184_86.047)] text-[oklch(0.795_0.184_86.047)]" />
+              46
+            </span>
+            <div className="flex flex-row items-center">
+              <div className="bg-border h-1.5 w-1.5 border" />
+              <div className="from-border h-px w-40 bg-gradient-to-r to-transparent" />
+            </div>
+          </div>
+
+          <div className="hero-display flex flex-col gap-2 px-6 text-6xl sm:text-7xl">
+            <h1 className="text-text-secondary">
+              Everything your PDFs need, <br />
+              <span className="text-text-primary">in one click.</span>
+            </h1>
+          </div>
+
+          <div className="mt-4 flex flex-row gap-4 px-6">
             <Link href="/merge-pdf">
               <button
                 data-slot="button"
-                className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-10 px-4 py-2 has-[>svg]:px-2.5"
+                className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-8 px-4 py-1 has-[>svg]:px-2.5"
               >
                 <span>Get Started</span>
                 <svg
@@ -171,7 +99,7 @@ export function Hero() {
                 <Link href="/#all-tools">
                   <button
                     data-slot="button"
-                    className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none border border-border bg-bg-subtle text-text-primary hover:bg-bg-elevated shadow-sm h-10 px-4 py-2 has-[>svg]:px-2.5"
+                    className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none border border-border bg-bg-subtle text-text-primary hover:bg-bg-elevated shadow-sm h-8 px-4 py-1 has-[>svg]:px-2.5"
                   >
                     <span>Open Tools</span>
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -193,38 +121,40 @@ export function Hero() {
               </svg>
             </div>
           </div>
-          <div className="mt-6 flex flex-wrap gap-2">
+
+          <p className="mono-copy mt-2 max-w-xl px-6 text-sm leading-6 text-text-secondary">
+            No watermark. No upload. No sign-up. Your files never leave your browser.
+          </p>
+
+          <div className="mt-4 flex flex-wrap gap-2 px-6">
             {trustBadges.map((badge) => {
               const Icon = badge.icon;
-
               return (
-                <span
-                  key={badge.label}
-                  className="section-label px-2.5 py-1 text-xs"
-                >
+                <span key={badge.label} className="section-label px-2.5 py-1 text-xs">
                   <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                   {badge.label}
                 </span>
               );
             })}
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      <div className="grid border-b border-border md:grid-cols-3">
-        {featureCards.map((card) => {
+      <div className="grid grid-flow-row sm:h-[150px] sm:grid-cols-3">
+        {featureCards.map((card, i) => {
           const Icon = card.icon;
-
           return (
             <div
               key={card.label}
-              className="border-border p-5 md:border-r md:last:border-r-0"
+              className={`flex h-40 flex-col gap-3 border-b border-dashed border-border p-4 sm:h-auto ${
+                i !== 0 ? "sm:border-l" : ""
+              }`}
             >
-              <h2 className="mono-copy flex items-center gap-2 text-sm font-medium text-text-primary">
+              <h2 className="mono-copy flex items-center gap-2 text-sm font-medium tracking-tight text-text-primary">
                 <Icon className="h-4 w-4 text-accent" aria-hidden="true" />
                 {card.label}
               </h2>
-              <p className="mono-copy mt-4 text-xs leading-5 text-text-secondary">
+              <p className="mono-copy text-xs leading-5 tracking-tight text-text-secondary">
                 {card.description}
               </p>
             </div>
