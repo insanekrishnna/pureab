@@ -14,7 +14,7 @@ export function Footer() {
 
       {/* Large Background Text */}
       <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 -translate-x-1/2 translate-y-[25%] select-none text-[13vw] font-black uppercase leading-none text-text-primary/[0.02] tracking-tighter">
-        Purelab
+        Paperlab
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl border-x border-border">
@@ -49,7 +49,7 @@ export function Footer() {
             <Link
               href="/"
               className="flex items-center gap-0"
-              aria-label="Purelab home"
+              aria-label="Paperlab home"
             >
               <BrandLogo className="h-16 w-16" />
               <span className="hero-display text-2xl text-text-primary -ml-3">Paperlab</span>
@@ -95,12 +95,12 @@ export function Footer() {
           <div className="absolute -top-[1px] left-1/2 h-[2px] w-8 -translate-x-1/2 bg-border" />
           
           <div>
-            &copy; {new Date().getFullYear()} purelab &middot; Free PDF tools, forever.
-          </div>
+            &copy; {new Date().getFullYear()} paperlab &middot; Free PDF tools, forever.
+          </div>  
           
           <div className="flex items-center gap-2">
              <div className="h-1.5 w-1.5 rounded-full bg-[#7b61ff]/60" />
-             <span>All systems operational</span>
+             <a href="https://prathm.me/" className="hover:text-text-primary transition-colors" > created by ~Pratham</a>
           </div>
         </div>
       </div>

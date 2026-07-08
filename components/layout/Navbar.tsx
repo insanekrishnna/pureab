@@ -6,7 +6,7 @@ import { NavbarActions } from "@/components/layout/NavbarActions";
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur-sm ">
-      <div className="mx-auto flex h-16  max-w-5xl items-center justify-between gap-3 border-x border-border px-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[51px] max-w-5xl items-center justify-between gap-3 border-x border-border px-3 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="flex min-w-0 items-center gap-0 py-3 text-text-primary transition-colors hover:text-text-primary/80"

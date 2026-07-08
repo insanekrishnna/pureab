@@ -222,8 +222,8 @@ textarea {
 
 .navbar-theme-switch {
   display: inline-flex;
-  width: 2.25rem;
-  height: 1.25rem;
+  width: 1.8rem;
+  height: 1rem;
   flex-shrink: 0;
   align-items: center;
   border: 0;
@@ -245,8 +245,8 @@ textarea {
 .navbar-theme-thumb {
   pointer-events: none;
   display: flex;
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -261,12 +261,12 @@ textarea {
 }
 
 .navbar-theme-switch[data-state="checked"] .navbar-theme-thumb {
-  transform: translateX(1rem);
+  transform: translateX(0.75rem);
 }
 
 .navbar-install-button {
   display: inline-flex;
-  height: 2.25rem;
+  height: 1.8rem;
   flex-shrink: 0;
   cursor: pointer;
   user-select: none;
@@ -277,8 +277,8 @@ textarea {
   border-radius: var(--radius-md);
   background: var(--navbar-action-bg);
   color: var(--navbar-action-text);
-  padding: 0 0.875rem;
-  font-size: 0.875rem;
+  padding: 0 0.6rem;
+  font-size: 0.75rem;
   font-weight: 500;
   line-height: 1;
   outline: none;
