@@ -24,7 +24,7 @@ export function Footer() {
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
           }}
-          className="border-t border-b border-dashed border-border/80 bg-bg-base backdrop-blur-md px-6 py-12 sm:px-12 sm:py-20 flex flex-col items-center justify-center text-center relative overflow-hidden group"
+          className="border border-dashed border-border/80 bg-bg-base backdrop-blur-md px-6 py-8 sm:px-12 sm:py-12 flex flex-col items-center justify-center text-center relative overflow-hidden group"
         >
           {/* Architectural accents */}
           <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-text-muted/30" />
@@ -52,10 +52,10 @@ export function Footer() {
           >
             <Link 
               href="/merge-pdf" 
-              className="group relative inline-flex items-center justify-center overflow-hidden bg-text-primary px-8 py-3.5 font-mono text-xs uppercase tracking-widest text-bg-base transition-transform active:scale-95"
+              className="group relative inline-flex items-center justify-center overflow-hidden bg-transparent border border-[#7b61ff] px-8 py-3.5 font-mono text-xs uppercase tracking-widest text-text-primary transition-all active:scale-95 hover:shadow-[0_0_20px_rgba(123,97,255,0.15)]"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Start Building 
+              <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-white">
+                Get started 
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
                 </svg>
