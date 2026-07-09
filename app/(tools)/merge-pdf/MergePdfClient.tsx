@@ -61,7 +61,7 @@ export function MergePdfClient() {
               })
             }
           >
-            Merge {tool.files.length} files
+            Merge Files
           </ProcessButton>
         )}
       </div>

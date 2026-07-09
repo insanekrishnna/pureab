@@ -48,8 +48,8 @@ function FileIcon({ file }: { file: File }) {
   }
 
   return (
-    <span className="bg-bg-subtle flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary">
-      <PdfIcon className="h-4 w-4" aria-hidden="true" />
+    <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#7b61ff]/20 bg-[#7b61ff]/10 text-[#7b61ff] rounded-none">
+      <PdfIcon className="h-5 w-5" aria-hidden="true" />
     </span>
   );
 }
@@ -81,7 +81,7 @@ export function FileList({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -4 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
-      className="flex items-center gap-3 rounded-md border border-border bg-transparent px-3 py-2 hover:bg-bg-subtle transition-colors"
+      className="flex items-center gap-4 rounded-none border-y border-r border-l-4 border-y-border border-r-border border-l-[#7b61ff] bg-bg-base px-4 py-3 hover:bg-bg-subtle transition-colors shadow-[0_4px_12px_rgba(0,0,0,0.02)]"
     >
       {reorderable ? (
         <GripVertical
@@ -94,15 +94,17 @@ export function FileList({
       ) : null}
       <FileIcon file={file} />
       <div className="min-w-0 flex-1">
-        <p className="truncate text-xs font-medium text-text-primary">
+        <p className="font-mono truncate text-xs font-semibold uppercase tracking-wider text-text-primary">
           {file.name}
         </p>
-        <p className="text-[10px] text-text-muted">{formatBytes(file.size)}</p>
+        <p className="font-mono mt-0.5 text-[9px] uppercase tracking-widest text-text-muted">
+          {formatBytes(file.size)}
+        </p>
       </div>
       <button
         type="button"
         onClick={() => onRemove(files.findIndex((item) => item === file))}
-        className="rounded-full p-1.5 text-text-muted transition-all duration-150 ease-out hover:bg-bg-subtle hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/15"
+        className="rounded-none border border-border bg-bg-base p-1.5 text-text-muted transition-all duration-150 ease-out hover:border-error hover:bg-error hover:text-white focus:outline-none focus:ring-2 focus:ring-error/20"
         aria-label={`Remove ${file.name}`}
       >
         <X className="h-4 w-4" aria-hidden="true" />

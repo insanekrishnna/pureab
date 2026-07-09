@@ -33,13 +33,14 @@ export function FileDropzone({
   const rootProps = getRootProps();
 
   return (
-    <motion.div whileHover={{ scale: 1.002 }} whileTap={{ scale: 0.998 }}>
+    <motion.div>
       <div
         {...rootProps}
         className={cn(
-          "relative flex cursor-pointer flex-col items-center justify-center overflow-hidden rounded-md border border-dashed border-border p-4 transition-colors sm:min-h-52",
-          "hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-accent/50",
-          isDragActive && "bg-bg-subtle border-accent",
+          "group relative flex cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border-2 border-dashed border-border/80 p-8 sm:min-h-64 transition-all duration-300",
+          "hover:border-border hover:bg-bg-subtle",
+          "focus:outline-none focus:ring-2 focus:ring-accent/50",
+          isDragActive && "bg-bg-subtle border-border",
           className,
         )}
       >
@@ -54,10 +55,10 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-3"
             >
-              <span className="bg-bg-subtle mb-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full sm:h-9 sm:w-9 text-text-primary">
-                <Upload className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+              <span className="mb-4 flex text-text-primary transition-transform duration-300 scale-110">
+                <Upload className="h-10 w-10 sm:h-12 sm:w-12" aria-hidden="true" />
               </span>
-              <span className="text-[10px] font-medium text-text-primary sm:mb-1.5 sm:text-xs">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-text-primary sm:text-xs mb-1.5">
                 Release to upload
               </span>
             </motion.div>
@@ -70,13 +71,15 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-2"
             >
-              <span className="bg-bg-subtle mb-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full sm:h-9 sm:w-9 text-text-secondary">
-                <PdfIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+              <span className="mb-4 flex text-text-muted">
+                <PdfIcon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
               </span>
-              <span className="text-[10px] font-medium text-text-primary sm:mb-1.5 sm:text-xs">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-text-primary sm:text-xs mb-1.5">
                 {label}
               </span>
-              <span className="text-[10px] text-text-muted">{sublabel}</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-text-muted">
+                {sublabel}
+              </span>
             </motion.div>
           )}
         </AnimatePresence>
