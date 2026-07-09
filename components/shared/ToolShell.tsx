@@ -18,7 +18,6 @@ export function ToolShell({
   return (
     <section className="mx-auto max-w-5xl border-x border-border">
       <div className="relative overflow-hidden border-b border-border px-4 py-8 sm:px-8 lg:px-10">
-        <div className="linework pointer-events-none absolute inset-0 opacity-45" />
         <div className="relative z-10 mx-auto max-w-3xl">
           <Link
             href="/"
