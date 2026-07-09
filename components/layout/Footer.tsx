@@ -76,13 +76,13 @@ export function Footer() {
           {/* Brand Column */}
           <div className="p-6 sm:col-span-2 md:col-span-1 border-b sm:border-b-0 border-dashed border-border/80 md:border-r flex flex-col justify-between">
             <Link href="/" className="flex items-center gap-0 -ml-2" aria-label="Paperlab home">
-              <BrandLogo className="h-8 w-8 opacity-80" />
-              <span className="hero-display text-xl text-text-primary -ml-1 tracking-tight">Paperlab</span>
+              <BrandLogo className="h-15 w-20 opacity-80" />
+              <span className="hero-display text-xl text-text-primary font-black -ml-5 tracking-tight ">Paperlab</span>
             </Link>
             <div className="mt-8">
-              <div className="h-1.5 w-1.5 bg-text-primary/20 mb-3" />
-              <p className="mono-copy text-[10px] uppercase tracking-widest text-text-muted">
-                Precision tools <br /> for modern workflows
+             
+              <p className="mono-copy text-[9px] uppercase tracking-widest pl-3 text-text-muted/90">
+                Precision tools for your PDF workflows.
               </p>
             </div>
           </div>
