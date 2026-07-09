@@ -10,7 +10,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SearchModal } from "@/components/shared/SearchModal";
 import { Input } from "@/components/ui/Input";
-import { tools } from "@/config/tools";
+import { tools, categories } from "@/config/tools";
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -24,6 +24,11 @@ export default function Home() {
     return tools.filter((tool) => {
       return activeCategory === "all" || tool.category === activeCategory;
     });
+  }, [activeCategory]);
+
+  const activeCategoryLabel = useMemo(() => {
+    if (activeCategory === "all") return "All tools";
+    return categories.find((c) => c.id === activeCategory)?.label + " tools" || "Tools";
   }, [activeCategory]);
 
   return (
@@ -58,19 +63,39 @@ export default function Home() {
           </div>
 
           <div className="space-y-10">
-            <section id="featured-tools" className="scroll-mt-24">
-              <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
-                Featured tools
-              </h2>
-              <ToolGrid tools={featuredTools} />
-            </section>
+            {activeCategory === "all" ? (
+              <>
+                <section id="featured-tools" className="scroll-mt-24">
+                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                    Featured tools
+                  </h2>
+                  <ToolGrid tools={featuredTools} />
+                </section>
 
-            <section id="all-tools" className="scroll-mt-24">
-              <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
-                All tools
-              </h2>
-              <ToolGrid tools={filteredTools} />
-            </section>
+                <section id="all-tools" className="scroll-mt-24">
+                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                    All tools
+                  </h2>
+                  <ToolGrid tools={filteredTools} />
+                </section>
+              </>
+            ) : (
+              <>
+                <section id="category-tools" className="scroll-mt-24">
+                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                    {activeCategoryLabel}
+                  </h2>
+                  <ToolGrid tools={filteredTools} />
+                </section>
+
+                <section id="featured-tools" className="scroll-mt-24">
+                  <h2 className="mono-copy mb-3 text-sm font-medium text-text-primary">
+                    Featured tools
+                  </h2>
+                  <ToolGrid tools={featuredTools} />
+                </section>
+              </>
+            )}
           </div>
         </section>
       </main>
