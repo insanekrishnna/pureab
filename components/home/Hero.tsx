@@ -193,7 +193,7 @@ export function Hero() {
                   </button>
                 </Link>
               </div>
-              <span className="mono-copy text-text-muted/40 pointer-events-none absolute -top-10 left-32 size-full -rotate-[34deg] text-[10px] leading-tight">
+              <span className="mono-copy text-text-muted pointer-events-none absolute -top-12 left-40 size-full -rotate-[34deg] text-[10px] leading-tight">
                 Give Star <br /> please :3 <br /> for cookie
               </span>
               <svg
