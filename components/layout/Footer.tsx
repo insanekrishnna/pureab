@@ -1,108 +1,153 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { BrandLogo } from "@/components/layout/BrandLogo";
-import { GlassIcon } from "@/components/ui/GlassIcon";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-bg-base pt-16 text-sm text-text-muted">
-      {/* Subtle Background Pattern */}
-      <div className="pointer-events-none absolute inset-0 z-0 flex justify-center opacity-50">
-        <div className="w-full max-w-5xl bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]" />
+    <footer className="relative overflow-hidden bg-bg-base text-sm text-text-muted">
+      {/* Background Pattern */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex justify-center opacity-[0.15]">
+        <div className="w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_bottom,black_20%,transparent_90%)]" />
       </div>
 
-      {/* Large Background Text */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 -translate-x-1/2 translate-y-[25%] select-none text-[13vw] font-black uppercase leading-none text-text-primary/[0.02] tracking-tighter">
-        Paperlab
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-5xl border-x border-border">
-        {/* CTA Banner Section */}
-        <div className="mx-4 mb-16 rounded-2xl bg-gradient-to-br from-[#7b61ff]/10 to-transparent p-1 border border-[#7b61ff]/20 text-center sm:mx-8 sm:text-left">
-          <div className="rounded-xl bg-bg-elevated px-8 py-12 sm:p-16 relative overflow-hidden">
-            {/* Subtle light effect inside the CTA box */}
-            <div className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-[#7b61ff]/10 blur-[80px]" />
-            
-            <div className="relative z-10">
-              <h2 className="hero-display max-w-lg text-3xl text-text-primary sm:text-4xl">
-                Ready to simplify your PDF workflows?
-              </h2>
-              <p className="mono-copy mt-4 max-w-sm text-text-secondary text-sm">
-                Clean, fast, and completely free. <br /> Process files directly in your browser.
-              </p>
-              <Link 
-                href="/merge-pdf" 
-                className="mt-6 inline-flex items-center justify-center rounded-md bg-[#7b61ff] px-6 py-2 text-sm font-medium text-white  shadow-[#7b61ff]/20 transition-all hover:-translate-y-0.1 hover:bg-[#6a4fef] focus:outline-none focus:ring-2 focus:ring-[#7b61ff] focus:ring-offset-2 focus:ring-offset-bg-base "
-              >
-                Try for Free
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Links & Navigation */}
-        <div className="flex flex-col items-center gap-12 px-8 text-center sm:text-left lg:flex-row lg:items-start lg:justify-between">
-          
-          {/* Left: Brand */}
-          <div className="flex flex-col items-center lg:items-start">
-            <Link
-              href="/"
-              className="flex items-center gap-0"
-              aria-label="Paperlab home"
-            >
-              <BrandLogo className="h-16 w-16" />
-              <span className="hero-display text-2xl text-text-primary -ml-3">Paperlab</span>
-            </Link>
-          </div>
-
-          {/* Middle: Links Grid */}
-          <div className="flex w-full flex-col justify-center gap-8 sm:flex-row sm:justify-center lg:w-auto lg:gap-24">
-            <div className="flex flex-col gap-4">
-              <Link href="/merge-pdf" className="hover:text-text-primary transition-colors">Tools</Link>
-              <Link href="/compress-pdf" className="hover:text-text-primary transition-colors">Blog</Link>
-              <Link href="/split-pdf" className="hover:text-text-primary transition-colors">Portfolio</Link>
-            </div>
-            <div className="flex flex-col gap-4">
-              <Link href="#" className="hover:text-text-primary transition-colors">Jobs</Link>
-              <Link href="#" className="hover:text-text-primary transition-colors">Help centre</Link>
-            </div>
-            <div className="flex flex-col gap-4">
-              <Link href="#" className="hover:text-text-primary transition-colors">About us</Link>
-              <Link href="#" className="hover:text-text-primary transition-colors">Contact</Link>
-            </div>
-          </div>
-
-          {/* Right: Socials */}
-          <div className="flex items-start gap-4 justify-center">
-            <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-muted transition-colors hover:border-[#7b61ff]/50 hover:bg-[#7b61ff]/10 hover:text-[#7b61ff]" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-muted transition-colors hover:border-[#7b61ff]/50 hover:bg-[#7b61ff]/10 hover:text-[#7b61ff]" aria-label="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="#" className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text-muted transition-colors hover:border-[#7b61ff]/50 hover:bg-[#7b61ff]/10 hover:text-[#7b61ff]" aria-label="Youtube">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 7.1C2.5 7.1 2.5 6 3 5.4 3.7 4.7 4.5 4.7 4.9 4.6 8 4.4 12 4.4 12 4.4s4 0 7.1.2c.4.1 1.2.1 1.9.8.5.6.5 1.7.5 1.7s.2 1.4.2 2.7v1.8c0 1.3-.2 2.7-.2 2.7s0 1.1-.5 1.7c-.7.7-1.6.7-2 .8-3.5.3-7.3.3-7.3.3s-4 0-7.1-.2c-.4-.1-1.2-.1-1.9-.8-.5-.6-.5-1.7-.5-1.7S2.3 11 2.3 9.7V7.9c.1-1.3.2-2.7.2-2.7z"/><path d="M9.8 14.1v-6l5.7 3-5.7 3z"/></svg>
-            </a>
-          </div>
-        </div>
+      <div className="relative z-10 mx-auto max-w-5xl">
         
-        {/* Bottom Copyright */}
-        <div className="relative mt-10 border-t border-border px-8 py-6 flex flex-col items-center justify-between gap-4 text-xs text-text-muted sm:flex-row bg-bg-base/80 backdrop-blur-sm">
-          {/* Minimal design accents */}
-          <div className="absolute -top-[5px] left-4 select-none text-[10px] leading-none text-text-muted/40">+</div>
-          <div className="absolute -top-[5px] right-4 select-none text-[10px] leading-none text-text-muted/40">+</div>
-          <div className="absolute -top-[1px] left-1/2 h-[2px] w-8 -translate-x-1/2 bg-border" />
-          
+        {/* Massive Structured CTA */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+          }}
+          className="border-t border-b border-dashed border-border/80 bg-bg-base backdrop-blur-md px-6 py-12 sm:px-12 sm:py-20 flex flex-col items-center justify-center text-center relative overflow-hidden group"
+        >
+          {/* Architectural accents */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-text-muted/30" />
+          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-text-muted/30" />
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-text-muted/30" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-text-muted/30" />
+
+          <motion.h2 
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}
+            className="hero-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-text-primary max-w-4xl leading-[1.1] z-10"
+          >
+            Ready to simplify your PDF workflows?
+          </motion.h2>
+
+          <motion.p 
+            variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}
+            className="mono-copy mt-6 max-w-2xl text-text-secondary text-sm leading-relaxed z-10"
+          >
+            Clean, fast, and highly structured. Process files directly in your browser. <br className="hidden sm:block" /> No compromises on privacy or speed.
+          </motion.p>
+
+          <motion.div
+             variants={{ hidden: { opacity: 0, y: 10, scale: 0.95 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } } }}
+             className="mt-8 z-10"
+          >
+            <Link 
+              href="/merge-pdf" 
+              className="group relative inline-flex items-center justify-center overflow-hidden bg-text-primary px-8 py-3.5 font-mono text-xs uppercase tracking-widest text-bg-base transition-transform active:scale-95"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Start Building 
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
+                </svg>
+              </span>
+              <div className="absolute inset-0 z-0 h-full w-0 bg-[#7b61ff] transition-all duration-300 ease-out group-hover:w-full" />
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* Footer Grid */}
+        <motion.div 
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+           className="border-x border-b border-dashed border-border/80 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+        >
+          {/* Brand Column */}
+          <div className="p-6 sm:col-span-2 md:col-span-1 border-b sm:border-b-0 border-dashed border-border/80 md:border-r flex flex-col justify-between">
+            <Link href="/" className="flex items-center gap-0 -ml-2" aria-label="Paperlab home">
+              <BrandLogo className="h-8 w-8 opacity-80" />
+              <span className="hero-display text-xl text-text-primary -ml-1 tracking-tight">Paperlab</span>
+            </Link>
+            <div className="mt-8">
+              <div className="h-1.5 w-1.5 bg-text-primary/20 mb-3" />
+              <p className="mono-copy text-[10px] uppercase tracking-widest text-text-muted">
+                Precision tools <br /> for modern workflows
+              </p>
+            </div>
+          </div>
+
+          {/* Links 1 */}
+          <div className="p-6 border-b md:border-b-0 border-dashed border-border/80 md:border-r flex flex-col gap-3 mono-copy text-xs uppercase tracking-wider">
+             <div className="text-text-primary/40 mb-1 text-[10px]">Product</div>
+             <Link href="/merge-pdf" className="hover:text-text-primary transition-colors w-fit group">
+                <span className="relative">Tools<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+             </Link>
+             <Link href="/compress-pdf" className="hover:text-text-primary transition-colors w-fit group">
+                <span className="relative">Blog<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+             </Link>
+             <Link href="/split-pdf" className="hover:text-text-primary transition-colors w-fit group">
+                <span className="relative">Portfolio<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+             </Link>
+          </div>
+
+          {/* Links 2 */}
+          <div className="p-6 border-b md:border-b-0 border-dashed border-border/80 md:border-r flex flex-col gap-3 mono-copy text-xs uppercase tracking-wider">
+             <div className="text-text-primary/40 mb-1 text-[10px]">Company</div>
+             <Link href="#" className="hover:text-text-primary transition-colors w-fit group">
+                <span className="relative">About us<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+             </Link>
+             <Link href="#" className="hover:text-text-primary transition-colors w-fit group">
+                <span className="relative">Jobs<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+             </Link>
+             <Link href="#" className="hover:text-text-primary transition-colors w-fit group">
+                <span className="relative">Help centre<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+             </Link>
+          </div>
+
+          {/* Socials & Contact */}
+          <div className="p-6 flex flex-col justify-between">
+            <div className="flex flex-col gap-3 mono-copy text-xs uppercase tracking-wider">
+               <div className="text-text-primary/40 mb-1 text-[10px]">Connect</div>
+               <Link href="#" className="hover:text-text-primary transition-colors w-fit group">
+                  <span className="relative">Contact<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+               </Link>
+            </div>
+            
+            <div className="flex items-start gap-2 mt-8">
+              <a href="#" className="flex h-8 w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter"><rect width="20" height="20" x="2" y="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="#" className="flex h-8 w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="Twitter">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+        
+        {/* Absolute Bottom Strip */}
+        <div className="relative border-x border-b border-dashed border-border/80 px-6 py-4 flex flex-col items-center justify-between gap-3 text-[10px] uppercase tracking-widest text-text-muted/60 sm:flex-row bg-bg-base mono-copy">
           <div>
-            &copy; {new Date().getFullYear()} paperlab &middot; Free PDF tools, forever.
+            &copy; {new Date().getFullYear()} PAPERLAB. ALL RIGHTS RESERVED.
           </div>  
           
           <div className="flex items-center gap-2">
-             <div className="h-1.5 w-1.5 rounded-full bg-[#7b61ff]/60" />
-             <a href="https://prathm.me/" className="hover:text-text-primary transition-colors" > created by ~Pratham</a>
+             <div className="h-1 w-1 bg-text-primary/40" />
+             <a href="https://prathm.me/" className="text-text-primary font-medium hover:text-text-primary/80 transition-colors" >ENGINEERED BY PRATHAM</a>
           </div>
         </div>
+
+
       </div>
     </footer>
   );

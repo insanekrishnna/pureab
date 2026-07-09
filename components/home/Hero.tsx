@@ -106,8 +106,6 @@ const HeroDocsMockup = () => {
     >
       {/* Left Document */}
       <motion.div
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         className="absolute w-full h-full flex items-center justify-center z-0 -translate-x-[35%] sm:-translate-x-[45%] translate-y-[15%] -rotate-[15deg] scale-90 opacity-95"
       >
         <DocumentMockup />
@@ -115,8 +113,6 @@ const HeroDocsMockup = () => {
       
       {/* Right Document */}
       <motion.div
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute w-full h-full flex items-center justify-center z-0 translate-x-[35%] sm:translate-x-[45%] translate-y-[10%] rotate-[12deg] scale-90 opacity-95"
       >
         <DocumentMockup />
@@ -124,8 +120,6 @@ const HeroDocsMockup = () => {
       
       {/* Center Document */}
       <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute w-full h-full flex items-center justify-center z-10 drop-shadow-lg scale-[1.05]"
       >
         <DocumentMockup />

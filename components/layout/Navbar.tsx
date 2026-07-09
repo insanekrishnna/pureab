@@ -5,8 +5,8 @@ import { NavbarActions } from "@/components/layout/NavbarActions";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-dashed border-border bg-bg/90 backdrop-blur-sm ">
-      <div className="mx-auto flex h-[51px] max-w-5xl items-center justify-between gap-3 border-x border-dashed border-border px-3 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 bg-bg/90 backdrop-blur-sm ">
+      <div className="mx-auto flex h-[51px] max-w-5xl items-center justify-between gap-3 border-b border-x border-dashed border-border px-3 sm:px-6 lg:px-8">
         <Link
           href="/"
           className="flex min-w-0 flex-row items-center py-3 text-text-primary transition-colors hover:text-text-primary/80"
