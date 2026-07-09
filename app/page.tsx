@@ -7,31 +7,23 @@ import { Hero } from "@/components/home/Hero";
 import { ToolGrid } from "@/components/home/ToolGrid";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { SearchModal } from "@/components/shared/SearchModal";
 import { Input } from "@/components/ui/Input";
 import { tools } from "@/config/tools";
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const featuredTools = useMemo(
     () => tools.filter((tool) => tool.featured),
     [],
   );
   const filteredTools = useMemo(() => {
-    const normalizedQuery = searchQuery.trim().toLowerCase();
-
     return tools.filter((tool) => {
-      const matchesCategory =
-        activeCategory === "all" || tool.category === activeCategory;
-      const matchesSearch =
-        normalizedQuery.length === 0 ||
-        tool.name.toLowerCase().includes(normalizedQuery) ||
-        tool.description.toLowerCase().includes(normalizedQuery);
-
-      return matchesCategory && matchesSearch;
+      return activeCategory === "all" || tool.category === activeCategory;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory]);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -42,18 +34,23 @@ export default function Home() {
           id="tools"
           className="mx-auto max-w-5xl border-x border-border px-4 py-6 pb-16"
         >
-          <div className="mb-5 grid gap-3 lg:grid-cols-[1fr_20rem] lg:items-start">
-            <CategoryFilter
-              active={activeCategory}
-              onChange={setActiveCategory}
-            />
-            <Input
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-              placeholder="Search tools..."
-              className="sm:max-w-xs"
-              aria-label="Search tools"
-            />
+          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="flex-1">
+              <Input
+                value=""
+                readOnly
+                onClick={() => setIsSearchOpen(true)}
+                placeholder="Search tools..."
+                className="w-full cursor-pointer text-text-muted"
+                aria-label="Search tools"
+              />
+            </div>
+            <div className="shrink-0">
+              <CategoryFilter
+                active={activeCategory}
+                onChange={setActiveCategory}
+              />
+            </div>
           </div>
 
           <div className="space-y-10">
@@ -74,6 +71,7 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </div>
   );
 }
