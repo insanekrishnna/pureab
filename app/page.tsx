@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
 
 import { CategoryFilter } from "@/components/home/CategoryFilter";
 import { Hero } from "@/components/home/Hero";
@@ -35,15 +36,18 @@ export default function Home() {
           className="mx-auto max-w-5xl border-x border-border px-4 py-6 pb-16"
         >
           <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <div className="flex-1">
+            <div className="flex-1 relative group">
               <Input
                 value=""
                 readOnly
                 onClick={() => setIsSearchOpen(true)}
                 placeholder="Search tools..."
-                className="w-full cursor-pointer text-text-muted mono-copy rounded-none border border-border bg-bg-elevated h-[46px]"
+                className="w-full cursor-pointer text-text-muted mono-copy rounded-none border border-border bg-bg-elevated h-10 pr-10"
                 aria-label="Search tools"
               />
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary group-hover:text-[#7b61ff] transition-colors">
+                <Search className="h-4 w-4" />
+              </div>
             </div>
             <div className="shrink-0">
               <CategoryFilter
