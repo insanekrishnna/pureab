@@ -47,7 +47,7 @@ export default function Home() {
                 readOnly
                 onClick={() => setIsSearchOpen(true)}
                 placeholder="Search tools..."
-                className="w-full cursor-pointer text-text-muted mono-copy rounded-none border border-border bg-bg-elevated h-10 pr-10"
+                className="w-full cursor-pointer text-text-muted mono-copy font-mono placeholder:font-mono rounded-none border border-border bg-bg-elevated h-10 pr-10"
                 aria-label="Search tools"
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-secondary group-hover:text-[#7b61ff] transition-colors">
