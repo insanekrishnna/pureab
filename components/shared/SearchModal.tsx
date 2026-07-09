@@ -66,7 +66,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
-              className="w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-bg-elevated shadow-2xl pointer-events-auto"
+              className="w-full max-w-2xl overflow-hidden rounded-none border border-border bg-bg-elevated shadow-2xl pointer-events-auto"
             >
               {/* Search Input Area */}
               <div className="flex items-center border-b border-border px-4 py-4">
@@ -77,9 +77,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   placeholder="Search tools or describe what you need..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="flex-1 bg-transparent text-text-primary placeholder:text-text-muted focus:outline-none sm:text-base"
+                  className="mono-copy flex-1 bg-transparent text-text-primary placeholder:text-text-muted focus:outline-none sm:text-base"
                 />
-                <div className="hidden sm:flex items-center justify-center rounded-md border border-border bg-bg-subtle px-1.5 py-0.5 text-xs font-medium text-text-secondary shadow-sm">
+                <div className="hidden sm:flex items-center justify-center rounded-none border border-border bg-bg-subtle px-1.5 py-0.5 text-xs font-medium text-text-secondary shadow-sm">
                   ESC
                 </div>
               </div>
@@ -97,16 +97,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         key={tool.slug}
                         href={`/${tool.slug}`}
                         onClick={onClose}
-                        className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-surface-muted"
+                        className="group flex items-center gap-4 rounded-none p-4 transition-all duration-200 ease-out border border-transparent hover:border-border-hover hover:bg-bg-subtle"
                       >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-bg-subtle text-text-secondary group-hover:text-text-primary transition-colors">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none border border-border bg-bg-subtle text-[#7b61ff] group-hover:border-border-hover group-hover:text-[#7b61ff] transition-colors">
                           <tool.icon className="h-5 w-5" />
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-sm font-medium text-text-primary">
+                          <span className="mono-copy text-sm font-medium text-text-primary">
                             {tool.name}
                           </span>
-                          <span className="text-xs text-text-secondary">
+                          <span className="mono-copy mt-1 text-xs text-text-secondary">
                             {tool.description}
                           </span>
                         </div>
@@ -119,11 +119,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               {/* Footer Shortcuts */}
               <div className="flex items-center justify-start gap-4 border-t border-border bg-bg-subtle px-4 py-3 text-xs text-text-secondary">
                 <span className="flex items-center gap-1.5">
-                  <kbd className="rounded border border-border bg-bg-elevated px-1.5 py-0.5 font-sans font-medium text-text-muted shadow-sm">↑↓</kbd>
+                  <kbd className="mono-copy rounded-none border border-border bg-bg-elevated px-1.5 py-0.5 font-medium text-text-muted shadow-sm">↑↓</kbd>
                   Navigate
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <kbd className="rounded border border-border bg-bg-elevated px-1.5 py-0.5 font-sans font-medium text-text-muted shadow-sm">↵</kbd>
+                  <kbd className="mono-copy rounded-none border border-border bg-bg-elevated px-1.5 py-0.5 font-medium text-text-muted shadow-sm">↵</kbd>
                   Select
                 </span>
               </div>

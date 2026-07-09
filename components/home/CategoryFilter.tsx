@@ -16,7 +16,7 @@ export function CategoryFilter({ active, onChange }: CategoryFilterProps) {
         value={active}
         onChange={(e) => onChange(e.target.value)}
         className={cn(
-          "mono-copy appearance-none w-full sm:w-[160px] rounded-md border border-border bg-bg-subtle py-[9px] pl-3 pr-10 text-sm font-medium text-text-primary transition-all duration-150 ease-out focus:border-border-hover focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer",
+          "mono-copy appearance-none w-full sm:w-[160px] rounded-none border border-border bg-bg-elevated h-[46px] pl-3 pr-10 text-sm font-medium text-text-primary transition-all duration-150 ease-out focus:border-border-hover focus:outline-none focus:ring-1 focus:ring-accent cursor-pointer",
         )}
         aria-label="Filter by category"
       >
