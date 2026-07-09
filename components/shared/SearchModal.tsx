@@ -123,7 +123,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               </div>
 
               {/* Tools List */}
-              <div className="max-h-[50vh] overflow-y-auto p-2 scrollbar-thin">
+              <div className="max-h-[50vh] overflow-y-auto p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {filteredTools.length === 0 ? (
                   <div className="py-14 text-center text-sm text-text-secondary">
                     No tools found for "{query}"

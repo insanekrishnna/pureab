@@ -19,8 +19,8 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 8 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 15, scale: 0.98 },
+  show: { opacity: 1, y: 0, scale: 1 },
 };
 
 export function ToolGrid({ tools }: ToolGridProps) {
@@ -43,10 +43,10 @@ export function ToolGrid({ tools }: ToolGridProps) {
         <motion.div
           key={tool.slug}
           variants={item}
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.18, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <ToolCard tool={tool} />
         </motion.div>

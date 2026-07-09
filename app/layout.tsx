@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,8 +37,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
-        <Analytics />
+        <SmoothScrollProvider>
+          {children}
+          <Analytics />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

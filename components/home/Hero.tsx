@@ -98,18 +98,42 @@ const DocumentMockup = ({ className }: { className?: string }) => {
 
 const HeroDocsMockup = () => {
   return (
-    <div className="relative w-full max-w-[500px] h-[350px] sm:h-[450px] flex items-center justify-center scale-[0.58] translate-y-[15%] -translate-x-[15%]">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+      className="relative w-full max-w-[500px] h-[350px] sm:h-[450px] flex items-center justify-center scale-[0.58] translate-y-[15%] -translate-x-[15%]"
+    >
       {/* Left Document */}
-      <DocumentMockup className="z-0 -translate-x-[35%] sm:-translate-x-[45%] translate-y-[15%] -rotate-[15deg] scale-90 opacity-95" />
+      <motion.div
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute w-full h-full flex items-center justify-center z-0 -translate-x-[35%] sm:-translate-x-[45%] translate-y-[15%] -rotate-[15deg] scale-90 opacity-95"
+      >
+        <DocumentMockup />
+      </motion.div>
       
       {/* Right Document */}
-      <DocumentMockup className="z-0 translate-x-[35%] sm:translate-x-[45%] translate-y-[10%] rotate-[12deg] scale-90 opacity-95" />
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute w-full h-full flex items-center justify-center z-0 translate-x-[35%] sm:translate-x-[45%] translate-y-[10%] rotate-[12deg] scale-90 opacity-95"
+      >
+        <DocumentMockup />
+      </motion.div>
       
       {/* Center Document */}
-      <DocumentMockup className="z-10 drop-shadow-lg scale-[1.05]" />
-    </div>
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute w-full h-full flex items-center justify-center z-10 drop-shadow-lg scale-[1.05]"
+      >
+        <DocumentMockup />
+      </motion.div>
+    </motion.div>
   );
 };
+
 
 export function Hero() {
   const [stars, setStars] = useState<number | string>(2);
@@ -133,8 +157,22 @@ export function Hero() {
         </div>
 
         {/* Left Side Content */}
-        <div className="z-10 flex w-full flex-col gap-4 md:w-[65%] lg:w-[70%]">
-          <div className="flex flex-row items-center gap-2 px-6">
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 },
+            }
+          }}
+          className="z-10 flex w-full flex-col gap-4 md:w-[65%] lg:w-[70%]"
+        >
+          <motion.div 
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
+            className="flex flex-row items-center gap-2 px-6"
+          >
             <span className="section-label px-2.5 py-1 text-xs">
               <Star className="h-3.5 w-3.5 fill-[oklch(0.795_0.184_86.047)] text-[oklch(0.795_0.184_86.047)]" />
               {stars}
@@ -142,16 +180,22 @@ export function Hero() {
             <div className="flex flex-row items-center">
               <div className="from-border h-px w-40 bg-gradient-to-r to-transparent" />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="hero-display flex flex-col gap-2 px-6 text-6xl sm:text-7xl">
+          <motion.div 
+            variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
+            className="hero-display flex flex-col gap-2 px-6 text-6xl sm:text-7xl"
+          >
             <h1 className="text-text-secondary">
               <span className="whitespace-nowrap text-balance sm:whitespace-nowrap">Everything your PDFs need,</span> <br />
               <span className="text-text-primary whitespace-nowrap">in one click.</span>
             </h1>
-          </div>
+          </motion.div>
 
-          <div className="mt-4 flex flex-row items-center gap-4 px-6">
+          <motion.div 
+            variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
+            className="mt-4 flex flex-row items-center gap-4 px-6"
+          >
             <Link href="/merge-pdf">
               <button
                 data-slot="button"
@@ -207,13 +251,16 @@ export function Hero() {
                 <path d="M315.713 233.668c-17.136 0-34.884 1.224-51.408 5.508-6.731 1.836-3.672 11.016 3.061 9.792 13.464-2.448 27.54-1.836 41.004-1.224-.612 7.955-1.224 16.523-2.448 24.479-1.224 6.12-5.508 15.3-1.836 21.42 1.836 3.061 4.896 3.061 7.956 1.836 7.344-3.06 7.344-15.912 8.568-22.644 1.836-11.017 2.447-21.42 2.447-32.437 0-3.67-3.672-6.73-7.344-6.73" />
               </svg>
             </div>
-          </div>
+          </motion.div>
 
-          <p className="mono-copy mt-6 max-w-xl px-6 text-sm leading-6 text-text-secondary">
+          <motion.p 
+            variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
+            className="mono-copy mt-6 max-w-xl px-6 text-sm leading-6 text-text-secondary"
+          >
             No watermark. No upload. No sign-up. <br /> Your files never leave your browser.
-          </p>
+          </motion.p>
 
-        </div>
+        </motion.div>
 
         {/* Right Side Image */}
         <div className="z-10 hidden w-full items-center justify-center p-8 md:flex md:w-[35%] lg:w-[30%] relative">
@@ -221,11 +268,24 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="grid grid-flow-row sm:h-[150px] sm:grid-cols-3">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 },
+          }
+        }}
+        className="grid grid-flow-row sm:h-[150px] sm:grid-cols-3"
+      >
         {featureCards.map((card, i) => {
           const Icon = card.icon;
           return (
-            <div
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
               key={card.label}
               className={`flex h-40 flex-col gap-3 border-b border-dashed border-border p-4 sm:h-auto ${
                 i !== 0 ? "sm:border-l" : ""
@@ -238,10 +298,10 @@ export function Hero() {
               <p className="mono-copy text-xs leading-5 tracking-tight text-text-secondary">
                 {card.description}
               </p>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }
