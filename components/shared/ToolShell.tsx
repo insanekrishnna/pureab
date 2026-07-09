@@ -28,11 +28,11 @@ export function ToolShell({
             All tools
           </Link>
           <header className="mt-7 flex items-start gap-3">
-            <div className="mt-1">
+            <div className="mt-1 text-[#7b61ff]">
               {icon}
             </div>
             <div className="min-w-0">
-              <h1 className="text-2xl font-semibold leading-tight text-text-primary">
+              <h1 className="mono-copy text-2xl font-medium leading-tight text-text-primary tracking-tight">
                 {title}
               </h1>
               <p className="mono-copy mt-2 max-w-2xl text-xs leading-5 text-text-secondary">

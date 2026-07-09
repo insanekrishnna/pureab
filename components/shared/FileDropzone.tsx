@@ -1,8 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { FileText, Upload } from "lucide-react";
+import { Upload } from "lucide-react";
 import { useDropzone, type Accept } from "react-dropzone";
+
+import { PdfIcon } from "@/components/shared/PdfIcon";
 
 import { cn } from "@/lib/utils/cn";
 
@@ -35,9 +37,9 @@ export function FileDropzone({
       <div
         {...rootProps}
         className={cn(
-          "soft-panel flex min-h-[180px] cursor-pointer items-center justify-center rounded-lg border border-dashed p-6 text-center transition-all duration-150 ease-out sm:min-h-[220px]",
-          "hover:border-border-hover hover:bg-bg-elevated focus:outline-none focus:ring-2 focus:ring-accent/15",
-          isDragActive && "border-accent bg-accent-subtle",
+          "relative flex cursor-pointer flex-col items-center justify-center overflow-hidden rounded-md border border-dashed border-border p-4 transition-colors sm:min-h-52",
+          "hover:bg-bg-subtle focus:outline-none focus:ring-2 focus:ring-accent/50",
+          isDragActive && "bg-bg-subtle border-accent",
           className,
         )}
       >
@@ -52,10 +54,10 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-3"
             >
-              <span className="frost-icon-surface rounded-md p-3">
-                <Upload className="h-6 w-6" aria-hidden="true" />
+              <span className="bg-bg-subtle mb-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full sm:h-9 sm:w-9 text-text-primary">
+                <Upload className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               </span>
-              <span className="mono-copy text-sm font-medium text-text-primary">
+              <span className="text-[10px] font-medium text-text-primary sm:mb-1.5 sm:text-xs">
                 Release to upload
               </span>
             </motion.div>
@@ -68,13 +70,13 @@ export function FileDropzone({
               transition={{ duration: 0.12, ease: "easeOut" }}
               className="flex flex-col items-center gap-2"
             >
-              <span className="frost-icon-surface rounded-md p-3">
-                <FileText className="h-7 w-7" aria-hidden="true" />
+              <span className="bg-bg-subtle mb-2 flex h-7 w-7 shrink-0 items-center justify-center rounded-full sm:h-9 sm:w-9 text-text-secondary">
+                <PdfIcon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
               </span>
-              <span className="mono-copy text-sm font-medium text-text-primary">
+              <span className="text-[10px] font-medium text-text-primary sm:mb-1.5 sm:text-xs">
                 {label}
               </span>
-              <span className="mono-copy text-xs text-text-muted">{sublabel}</span>
+              <span className="text-[10px] text-text-muted">{sublabel}</span>
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,8 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion, Reorder } from "framer-motion";
-import { FileText, GripVertical, X } from "lucide-react";
+import { GripVertical, X } from "lucide-react";
 import { useEffect, useState } from "react";
+
+import { PdfIcon } from "@/components/shared/PdfIcon";
 
 import { cn } from "@/lib/utils/cn";
 import { formatBytes } from "@/lib/utils/file";
@@ -46,8 +48,8 @@ function FileIcon({ file }: { file: File }) {
   }
 
   return (
-    <span className="frost-icon-surface flex h-10 w-10 shrink-0 items-center justify-center rounded-md">
-      <FileText className="h-5 w-5" aria-hidden="true" />
+    <span className="bg-bg-subtle flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-text-secondary">
+      <PdfIcon className="h-4 w-4" aria-hidden="true" />
     </span>
   );
 }
@@ -79,7 +81,7 @@ export function FileList({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -4 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
-      className="glass-card flex items-center gap-3 rounded-md px-3 py-2.5"
+      className="flex items-center gap-3 rounded-md border border-border bg-transparent px-3 py-2 hover:bg-bg-subtle transition-colors"
     >
       {reorderable ? (
         <GripVertical
@@ -92,10 +94,10 @@ export function FileList({
       ) : null}
       <FileIcon file={file} />
       <div className="min-w-0 flex-1">
-        <p className="mono-copy truncate text-sm font-medium text-text-primary">
+        <p className="truncate text-xs font-medium text-text-primary">
           {file.name}
         </p>
-        <p className="mono-copy text-xs text-text-muted">{formatBytes(file.size)}</p>
+        <p className="text-[10px] text-text-muted">{formatBytes(file.size)}</p>
       </div>
       <button
         type="button"
