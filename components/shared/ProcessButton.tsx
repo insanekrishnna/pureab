@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type { ReactNode } from "react";
 
-import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
 import { Progress } from "@/components/ui/Progress";
 import { cn } from "@/lib/utils/cn";
 
@@ -26,19 +26,26 @@ export function ProcessButton({
 }: ProcessButtonProps) {
   return (
     <div className={cn("space-y-3", className)}>
-      <Button
+      <button
+        type="button"
         className={cn(
-          "w-full rounded-none py-5 font-mono text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300",
+          "group relative inline-flex w-full items-center justify-center overflow-hidden bg-white  border border-[#7b70ff] px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7b70ff] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50  ",
           !disabled 
-            ? "border border-[#7b61ff] bg-transparent text-text-primary hover:bg-[#7b61ff] hover:text-white hover:shadow-[0_0_30px_rgba(123,97,255,0.4)] hover:border-transparent active:scale-[0.99]" 
-            : "border border-border/50 bg-bg-subtle/30 text-text-muted/50 cursor-not-allowed"
+            ? "active:scale-[0.99] active:bg-neutral-100 hover:bg-neutral-50/50" 
+            : "opacity-60 cursor-not-allowed"
         )}
         onClick={onClick}
-        disabled={disabled}
-        loading={loading}
+        disabled={disabled || loading}
       >
-        {children}
-      </Button>
+        <span className="relative z-10 flex items-center gap-2">
+          {loading && <Spinner size="sm" />}
+          {children}
+          {!loading && (
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+          )}
+        </span>
+      </button>
       <AnimatePresence initial={false}>
         {loading ? (
           <motion.div

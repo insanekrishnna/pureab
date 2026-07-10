@@ -146,6 +146,8 @@ export function Footer() {
               </Link>
             </motion.div>
           </motion.div>
+          </>
+        )}
 
         {/* Footer Grid */}
         <motion.div 
@@ -242,10 +244,6 @@ export function Footer() {
              <a href="https://prathm.me/" className="text-text-primary font-medium hover:text-text-primary/80 transition-colors" >ENGINEERED BY PRATHAM</a>
           </div>
         </div>
-          </>
-        )}
-
-
       </div>
     </footer>
   );
