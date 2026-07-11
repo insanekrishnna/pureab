@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { tools } from "@/config/tools";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,6 +15,7 @@ interface SearchModalProps {
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [placeholder, setPlaceholder] = useState("Search tools...");
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
@@ -43,6 +44,22 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       setSelectedIndex(0);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setPlaceholder("Search tools...");
+      } else {
+        setPlaceholder("Search tools or describe what you need...");
+      }
+    };
+    
+    // Set initial value
+    handleResize();
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -107,22 +124,29 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               className="w-full max-w-2xl overflow-hidden rounded-none border border-border bg-bg-elevated shadow-2xl pointer-events-auto"
             >
               {/* Search Input Area */}
-              <div className="flex items-center border-b border-border px-4 py-4">
-                <Search className="h-5 w-5 text-text-secondary mr-3 shrink-0" />
+              <div className="flex items-center border-b border-border px-4 py-4 gap-3">
+                <Search className="h-5 w-5 text-text-secondary shrink-0" />
                 <input
                   ref={inputRef}
                   type="text"
-                  placeholder="Search tools or describe what you need..."
+                  placeholder={placeholder}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="mono-copy font-mono flex-1 bg-transparent text-text-primary placeholder:font-mono placeholder:text-text-muted focus:outline-none sm:text-base"
+                  className="mono-copy font-mono flex-1 min-w-0 bg-transparent text-text-primary placeholder:font-mono placeholder:text-text-muted focus:outline-none text-xs sm:text-base pr-2"
                 />
                 <button 
                   onClick={onClose}
-                  className="hidden sm:flex items-center justify-center rounded-none border border-border bg-bg-subtle px-1.5 py-0 text-[10px] font-medium font-mono mono-copy text-text-secondary shadow-sm hover:bg-bg-elevated hover:text-text-primary hover:border-border-hover transition-colors cursor-pointer"
+                  className="hidden sm:flex shrink-0 items-center justify-center rounded-md border border-border bg-bg-subtle px-1.5 py-0 text-[10px] font-medium font-mono mono-copy text-text-secondary shadow-sm hover:bg-bg-elevated hover:text-text-primary hover:border-border-hover transition-colors cursor-pointer"
                   aria-label="Close search"
                 >
                   ESC
+                </button>
+                <button 
+                  onClick={onClose}
+                  className="flex sm:hidden shrink-0 items-center justify-center rounded-md bg-bg-subtle p-1 text-text-secondary shadow-sm hover:bg-bg-elevated hover:text-text-primary transition-colors cursor-pointer"
+                  aria-label="Close search"
+                >
+                  <X className="h-4 w-4" aria-hidden="true" />
                 </button>
               </div>
 
