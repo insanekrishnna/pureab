@@ -30,7 +30,7 @@ export function PageNumbersClient() {
       <div className="space-y-5">
         <FileDropzone accept={{ "application/pdf": [".pdf"] }} onDrop={tool.onDrop} label="Drop a PDF file here" sublabel="Select one PDF" />
         {tool.files.length > 0 ? <FileList files={tool.files} onRemove={tool.removeFile} /> : null}
-        <div className="glass-card grid gap-3 rounded-lg p-4 sm:grid-cols-2">
+        <div className="glass-card grid gap-3 rounded-none p-4 sm:grid-cols-2">
           <Select label="Position" value={position} onChange={setPosition} options={[
             { value: "bottom-center", label: "Bottom Center" },
             { value: "bottom-right", label: "Bottom Right" },

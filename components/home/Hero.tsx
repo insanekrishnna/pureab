@@ -62,18 +62,18 @@ const DocumentMockup = ({ className }: { className?: string }) => {
       
       {/* Content */}
       <div className="relative z-10 p-5 sm:p-6 flex flex-col gap-3 mt-1">
-        <div className="w-2/5 h-2.5 sm:h-3 bg-[#818cf8] rounded-full" />
-        <div className="w-3/4 h-2 sm:h-2.5 bg-neutral-200 [[data-theme=dark]_&]:bg-neutral-300 rounded-full" />
+        <div className="w-2/5 h-2.5 sm:h-3 bg-[#818cf8] rounded-none" />
+        <div className="w-3/4 h-2 sm:h-2.5 bg-neutral-200 [[data-theme=dark]_&]:bg-neutral-300 rounded-none" />
         
         <div className="mt-3 flex flex-col gap-2.5">
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
-          <div className="w-11/12 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
-          <div className="w-4/5 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
-          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
-          <div className="w-5/6 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-full" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
+          <div className="w-11/12 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
+          <div className="w-4/5 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
+          <div className="w-full h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
+          <div className="w-5/6 h-2 sm:h-2.5 bg-neutral-100 [[data-theme=dark]_&]:bg-neutral-300/60 rounded-none" />
         </div>
 
         {/* Squiggly line */}
@@ -193,7 +193,7 @@ export function Hero() {
             <Link href="/merge-pdf">
               <button
                 data-slot="button"
-                className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-md text-[10px] font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
+                className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
               >
                 <span>Get Started</span>
                 <svg
@@ -222,7 +222,7 @@ export function Hero() {
                 <Link href="https://github.com/insanekrishnna/pureab" target="_blank" rel="noopener noreferrer">
                   <button
                     data-slot="button"
-                    className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-md text-[10px] font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none border border-border bg-bg-subtle text-text-primary hover:bg-bg-elevated shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
+                    className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none border border-border bg-bg-subtle text-text-primary hover:bg-bg-elevated shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
                   >
                     <span>Open Source</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" className="h-3.5 w-3.5" aria-hidden="true">

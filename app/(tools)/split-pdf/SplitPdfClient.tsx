@@ -35,7 +35,7 @@ export function SplitPdfClient() {
         {tool.files.length > 0 ? (
           <FileList files={tool.files} onRemove={tool.removeFile} />
         ) : null}
-        <div className="glass-card space-y-3 rounded-lg p-4">
+        <div className="glass-card space-y-3 rounded-none p-4">
           {[
             { id: "all", label: "Extract all pages" },
             { id: "range", label: "Extract page range" },

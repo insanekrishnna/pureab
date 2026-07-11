@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 import { BrandLogo } from "@/components/layout/BrandLogo";
+import { defaultFeatures, toolFeaturesMap } from "@/lib/data/toolFeatures";
 
 export function Footer() {
   const pathname = usePathname();
@@ -32,7 +33,7 @@ export function Footer() {
 
       <div className="relative z-10 mx-auto max-w-5xl">
         
-        {pathname === '/merge-pdf' && (
+        {pathname !== '/' && (
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -43,24 +44,11 @@ export function Footer() {
             }}
             className="grid grid-cols-1 md:grid-cols-3 border border-dashed border-border/80 bg-bg-base/40 backdrop-blur-3xl shadow-[0_0_40px_rgba(0,0,0,0.02)]"
           >
-            {[
-              {
-                title: "Local Processing",
-                desc: "Your files never leave your browser. Total privacy and maximum speed without server uploads."
-              },
-              {
-                title: "Visual Reordering",
-                desc: "Drag and drop thumbnails to organize your PDFs perfectly before instantly combining them."
-              },
-              {
-                title: "Zero Compression",
-                desc: "Merged documents retain their original quality and structure with absolutely no degradation."
-              }
-            ].map((feature, idx) => (
+            {(toolFeaturesMap[pathname.slice(1)] || defaultFeatures).map((feature, idx) => (
               <motion.div
                 key={idx}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                className={`relative px-8 py-12 flex flex-col justify-center group overflow-hidden ${idx !== 2 ? 'border-b md:border-b-0 md:border-r border-dashed border-border/80' : ''}`}
+                className={`relative px-6 py-6 flex flex-col justify-center group overflow-hidden ${idx !== 2 ? 'border-b md:border-b-0 md:border-r border-dashed border-border/80' : ''}`}
               >
                  {/* Architectural corner ticks */}
                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-text-muted/30 z-10 transition-colors group-hover:border-[#7b61ff]/50" />
@@ -69,9 +57,9 @@ export function Footer() {
                  {/* Soft glow on hover */}
                  <div className="absolute inset-0 bg-gradient-to-br from-[#7b61ff]/0 via-transparent to-[#7b61ff]/0 group-hover:from-[#7b61ff]/10 group-hover:to-transparent transition-all duration-700 z-0" />
                  
-                 <div className="flex items-center gap-3 mb-5 z-10">
-                   <div className="h-1.5 w-1.5 bg-text-primary/20 rounded-full group-hover:bg-[#7b61ff] group-hover:shadow-[0_0_12px_rgba(123,97,255,0.8)] transition-all duration-300" />
-                   <h3 className="hero-display text-xl tracking-tight text-text-primary">{feature.title}</h3>
+                 <div className="flex items-center gap-3 mb-3 z-10">
+                   <div className="h-1.5 w-1.5 bg-text-primary/20 rounded-none group-hover:bg-[#7b61ff] group-hover:shadow-[0_0_12px_rgba(123,97,255,0.8)] transition-all duration-300" />
+                   <h3 className="hero-display text-lg tracking-tight text-text-primary">{feature.title}</h3>
                  </div>
                  
                  <p className="mono-copy text-xs text-text-secondary leading-relaxed z-10 pr-4">

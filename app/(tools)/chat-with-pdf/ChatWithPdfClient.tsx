@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ArrowUp, MessageSquare } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -11,6 +12,28 @@ import { Input } from "@/components/ui/Input";
 import { usePdfTool } from "@/hooks/usePdfTool";
 import { streamGemini } from "@/lib/ai/streamGemini";
 import { cn } from "@/lib/utils/cn";
+
+function TypingIndicator() {
+  return (
+    <div className="flex space-x-1.5 items-center h-6 px-2">
+      <motion.div 
+        className="w-1.5 h-1.5 bg-text-muted rounded-none" 
+        animate={{ opacity: [0.4, 1, 0.4] }} 
+        transition={{ duration: 1.4, repeat: Infinity, delay: 0 }} 
+      />
+      <motion.div 
+        className="w-1.5 h-1.5 bg-text-muted rounded-none" 
+        animate={{ opacity: [0.4, 1, 0.4] }} 
+        transition={{ duration: 1.4, repeat: Infinity, delay: 0.2 }} 
+      />
+      <motion.div 
+        className="w-1.5 h-1.5 bg-text-muted rounded-none" 
+        animate={{ opacity: [0.4, 1, 0.4] }} 
+        transition={{ duration: 1.4, repeat: Infinity, delay: 0.4 }} 
+      />
+    </div>
+  );
+}
 
 interface Message {
   role: "user" | "assistant";
@@ -103,34 +126,55 @@ export function ChatWithPdfClient() {
             <p className="text-sm text-text-secondary">Extracting text...</p>
           ) : null}
         </div>
-        <div className="glass-card flex min-h-[520px] flex-col overflow-hidden rounded-lg">
+        <div className="glass-card flex min-h-[520px] flex-col overflow-hidden rounded-none">
           <div ref={scrollerRef} className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.length === 0 ? (
-              <div className="flex h-full items-center justify-center text-sm text-text-muted">
-                Upload a PDF, then ask a question.
+              <div className="flex h-full items-center justify-center text-sm text-text-muted mono-copy uppercase tracking-widest text-[10px]">
+                UPLOAD PDF TO START CHAT
               </div>
             ) : (
-              messages.map((message, index) => (
-                <div
-                  key={`${message.role}-${index}`}
-                  className={cn(
-                    "flex",
-                    message.role === "user" ? "justify-end" : "justify-start",
-                  )}
-                >
-                  <div
-                    className={cn(
-                      "max-w-[85%] rounded-md px-3 py-2 text-sm leading-relaxed shadow-sm",
-                      message.role === "user"
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-bg-subtle text-text-primary",
-                    )}
-                  >
-                    {message.content ||
-                      (streaming && message.role === "assistant" ? "..." : "")}
-                  </div>
-                </div>
-              ))
+              <div className="flex flex-col gap-4">
+                {messages.map((message, index) => {
+                  const isUser = message.role === "user";
+                  const isLastAssistant = index === messages.length - 1 && !isUser;
+                  
+                  return (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      key={`${message.role}-${index}`}
+                      className={cn(
+                        "flex w-full",
+                        isUser ? "justify-end" : "justify-start",
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "max-w-[85%] rounded-none px-4 py-3 text-sm leading-relaxed shadow-sm relative",
+                          isUser
+                            ? "bg-[#25D366]/10 border border-[#25D366]/30 text-text-primary"
+                            : "bg-bg-subtle border border-border text-text-primary",
+                        )}
+                      >
+                        {isLastAssistant && streaming && !message.content ? (
+                          <TypingIndicator />
+                        ) : (
+                          <div className="mono-copy whitespace-pre-wrap">{message.content}</div>
+                        )}
+                        
+                        {/* Chat bubble tail for rectangular theme */}
+                        <div 
+                          className={cn(
+                            "absolute top-0 w-3 h-3 border-t border-solid",
+                            isUser ? "-right-3 border-r border-[#25D366]/30 border-t-[#25D366]/30 bg-[#25D366]/10" : "-left-3 border-l border-border border-t-border bg-bg-subtle"
+                          )}
+                          style={{ clipPath: isUser ? "polygon(0 0, 100% 0, 0 100%)" : "polygon(0 0, 100% 0, 100% 100%)" }}
+                        />
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
             )}
           </div>
           <div className="border-t border-border p-3">

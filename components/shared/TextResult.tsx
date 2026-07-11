@@ -16,7 +16,7 @@ export function TextResult({ text, filename }: TextResultProps) {
       <textarea
         readOnly
         value={text}
-        className="soft-panel h-64 w-full resize-none rounded-lg p-4 font-mono text-sm leading-relaxed text-text-primary focus:outline-none"
+        className="soft-panel h-64 w-full resize-none rounded-none p-4 font-mono text-sm leading-relaxed text-text-primary focus:outline-none"
       />
       <div className="flex flex-col gap-2 sm:flex-row">
         <Button

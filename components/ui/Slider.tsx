@@ -40,7 +40,7 @@ export function Slider({
         step={step}
         value={value}
         onChange={(event) => onChange(Number(event.target.value))}
-        className="field-surface h-2 w-full cursor-pointer rounded-full transition-all duration-150 ease-out"
+        className="field-surface h-2 w-full cursor-pointer rounded-none transition-all duration-150 ease-out"
         style={{ accentColor: "var(--accent)" }}
       />
     </label>

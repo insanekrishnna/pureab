@@ -25,12 +25,12 @@ export function Switch({ checked, onChange, label, className }: SwitchProps) {
         aria-checked={checked}
         onClick={() => onChange(!checked)}
         className={cn(
-          "relative h-6 w-11 rounded-full border border-border shadow-sm transition-all duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-accent/15",
+          "relative h-6 w-11 rounded-none border border-border shadow-sm transition-all duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-accent/15",
           checked ? "bg-accent" : "bg-border",
         )}
       >
         <motion.span
-          className="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-bg-elevated shadow-md"
+          className="absolute left-0.5 top-0.5 h-5 w-5 rounded-none bg-bg-elevated shadow-md"
           animate={{ x: checked ? 20 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
         />

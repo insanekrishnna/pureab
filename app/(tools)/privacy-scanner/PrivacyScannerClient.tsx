@@ -93,7 +93,7 @@ export function PrivacyScannerClient() {
         {error ? <p className="text-sm font-medium text-error">{error}</p> : null}
         {findings.length > 0 ? (
           <div className="space-y-3">
-            <div className="glass-card divide-y divide-border overflow-hidden rounded-lg">
+            <div className="glass-card divide-y divide-border overflow-hidden rounded-none">
               {findings.map((finding) => {
                 const hasData = Boolean(finding.value);
                 const safe = !hasData || finding.label === "Number of pages";

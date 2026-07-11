@@ -37,9 +37,9 @@ export function FileDropzone({
       <div
         {...rootProps}
         className={cn(
-          "group relative flex cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border-2 border-dashed border-border/80 p-8 sm:min-h-64 transition-all duration-300",
-          "hover:border-border hover:bg-bg-subtle",
-          "focus:outline-none focus:ring-2 focus:ring-accent/50",
+          "group relative flex cursor-pointer flex-col items-center justify-center overflow-hidden rounded-none border border-transparent bg-bg-subtle/50 p-8 sm:min-h-64 transition-all duration-300",
+          "hover:bg-bg-subtle hover:border-border",
+          "focus:outline-none focus:ring-1 focus:ring-accent",
           isDragActive && "bg-bg-subtle border-border",
           className,
         )}

@@ -42,13 +42,13 @@ function FileIcon({ file }: { file: File }) {
       <img
         src={url}
         alt=""
-        className="h-10 w-10 shrink-0 rounded-md border border-border object-cover shadow-sm"
+        className="h-10 w-10 shrink-0 rounded-none border border-border object-cover shadow-sm"
       />
     );
   }
 
   return (
-    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg frost-icon-surface">
+    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none frost-icon-surface">
       <PdfIcon className="h-5 w-5 text-text-secondary group-hover:text-text-primary transition-colors" aria-hidden="true" />
     </span>
   );
@@ -81,7 +81,7 @@ export function FileList({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -4 }}
       transition={{ duration: 0.15, ease: "easeOut" }}
-      className="group flex items-center gap-4 rounded-xl border border-border bg-surface px-4 py-3 hover:border-border-hover hover:bg-surface-raised transition-all duration-200 shadow-sm hover:shadow-md"
+      className="group flex items-center gap-4 rounded-none border border-border bg-surface px-4 py-3 hover:border-border-hover hover:bg-surface-raised transition-all duration-200 shadow-sm hover:shadow-md"
     >
       {reorderable ? (
         <GripVertical

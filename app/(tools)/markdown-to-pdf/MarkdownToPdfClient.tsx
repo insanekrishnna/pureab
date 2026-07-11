@@ -24,7 +24,7 @@ export function MarkdownToPdfClient() {
       <div className="space-y-5">
         <Tabs active={tab} onChange={setTab} labels={{ paste: "Paste Markdown", upload: "Upload .md file" }} />
         {tab === "paste" ? (
-          <textarea value={markdown} onChange={(event) => setMarkdown(event.target.value)} className="soft-panel h-64 w-full resize-none rounded-lg p-4 font-mono text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15" />
+          <textarea value={markdown} onChange={(event) => setMarkdown(event.target.value)} className="soft-panel h-64 w-full resize-none rounded-none p-4 font-mono text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15" />
         ) : (
           <>
             <FileDropzone accept={{ "text/markdown": [".md"], "text/plain": [".md"] }} onDrop={tool.onDrop} label="Drop a Markdown file here" sublabel="Select .md" />
@@ -57,7 +57,7 @@ function Tabs({ active, onChange, labels }: { active: Tab; onChange: (tab: Tab) 
   return (
     <div className="flex gap-2">
       {(Object.keys(labels) as Tab[]).map((tab) => (
-        <button key={tab} type="button" onClick={() => onChange(tab)} className={cn("rounded-md px-4 py-2 text-sm font-medium shadow-sm transition-all duration-150 ease-out", active === tab ? "bg-accent text-accent-foreground" : "section-label text-text-secondary hover:border-border-hover hover:text-text-primary")}>
+        <button key={tab} type="button" onClick={() => onChange(tab)} className={cn("rounded-none px-4 py-2 text-sm font-medium shadow-sm transition-all duration-150 ease-out", active === tab ? "bg-accent text-accent-foreground" : "section-label text-text-secondary hover:border-border-hover hover:text-text-primary")}>
           {labels[tab]}
         </button>
       ))}

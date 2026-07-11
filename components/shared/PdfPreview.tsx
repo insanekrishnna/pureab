@@ -60,7 +60,7 @@ export function PdfPreview({ file, pageNum = 1, className }: PdfPreviewProps) {
   return (
     <div
       className={cn(
-        "glass-card relative overflow-hidden rounded-lg p-2",
+        "glass-card relative overflow-hidden rounded-none p-2",
         className,
       )}
     >

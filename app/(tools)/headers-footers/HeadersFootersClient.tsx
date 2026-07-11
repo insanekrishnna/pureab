@@ -33,7 +33,7 @@ export function HeadersFootersClient() {
       <div className="space-y-5">
         <FileDropzone accept={{ "application/pdf": [".pdf"] }} onDrop={tool.onDrop} label="Drop a PDF file here" sublabel="Select one PDF" />
         {tool.files.length > 0 ? <FileList files={tool.files} onRemove={tool.removeFile} /> : null}
-        <div className="glass-card grid gap-3 rounded-lg p-4 sm:grid-cols-2">
+        <div className="glass-card grid gap-3 rounded-none p-4 sm:grid-cols-2">
           <Input label="Header text" value={header} onChange={(event) => setHeader(event.target.value)} />
           <Select label="Header position" value={headerAlign} onChange={setHeaderAlign} options={alignOptions} />
           <Input label="Footer text" value={footer} onChange={(event) => setFooter(event.target.value)} />

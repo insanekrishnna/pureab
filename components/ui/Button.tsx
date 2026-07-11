@@ -46,7 +46,7 @@ export function Button({
       whileTap={disabled || loading ? undefined : { scale: 0.98 }}
       disabled={disabled || loading}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-all duration-150 ease-out",
+        "inline-flex items-center justify-center gap-2 rounded-none font-medium transition-all duration-150 ease-out",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/15 focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
         "disabled:cursor-not-allowed disabled:opacity-70",
         variants[variant],

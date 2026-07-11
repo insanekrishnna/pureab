@@ -23,19 +23,19 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="rounded-md px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
+            className="rounded-none px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
           >
             Home
           </Link>
           <Link
             href="/#featured-tools"
-            className="rounded-md px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
+            className="rounded-none px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
           >
             Featured
           </Link>
           <Link
             href="/#all-tools"
-            className="rounded-md px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
+            className="rounded-none px-2.5 py-1.5 transition-colors hover:bg-bg-subtle hover:text-text-primary "
           >
             Tools
           </Link>
