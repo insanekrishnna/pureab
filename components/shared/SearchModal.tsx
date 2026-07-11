@@ -130,7 +130,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div data-lenis-prevent className="max-h-[50vh] overflow-y-auto p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {filteredTools.length === 0 ? (
                   <div className="py-14 text-center text-sm text-text-secondary">
-                    No tools found for "{query}"
+                    No tools found for &quot;{query}&quot;
                   </div>
                 ) : (
                   <div className="flex flex-col gap-1">
