@@ -281,7 +281,7 @@ export function Hero() {
             <motion.div
               variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
               key={card.label}
-              className={`flex h-40 flex-col gap-3 border-b border-dashed border-border p-4 sm:h-auto ${
+              className={`flex h-auto flex-col gap-3 border-b border-dashed border-border p-4 py-6 sm:py-4 ${
                 i !== 0 ? "sm:border-l" : ""
               }`}
             >
