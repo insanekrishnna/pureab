@@ -211,11 +211,11 @@ export function Footer() {
                  </Link>
               </div>
               
-              <div className="flex flex-col sm:flex-row items-start gap-2 mt-4 sm:mt-8">
-                <a href="https://www.linkedin.com/in/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="LinkedIn">
+              <div className="flex items-center gap-2 mt-4 sm:mt-8">
+                <a href="https://www.linkedin.com/in/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary bg-bg-elevated/30" aria-label="LinkedIn">
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" className="sm:w-[14px] sm:h-[14px]"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-                <a href="https://x.com/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="Twitter">
+                <a href="https://x.com/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary bg-bg-elevated/30" aria-label="Twitter">
                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" className="sm:w-[14px] sm:h-[14px]"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
                 </a>
               </div>
