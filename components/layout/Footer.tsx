@@ -143,10 +143,10 @@ export function Footer() {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-           className="border-x border-b border-dashed border-border/80 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+           className="border-x border-b border-dashed border-border/80 flex flex-col md:grid md:grid-cols-4"
         >
           {/* Brand Column */}
-          <div className="p-6 sm:col-span-2 md:col-span-1 border-b sm:border-b-0 border-dashed border-border/80 md:border-r flex flex-col justify-between">
+          <div className="p-6 md:col-span-1 border-b md:border-b-0 border-dashed border-border/80 md:border-r flex flex-col justify-between">
             <Link href="/" className="flex items-center gap-0 -ml-2" aria-label="Paperlab home">
               <BrandLogo className="h-15 w-20 opacity-80" />
               <span className="hero-display text-xl text-text-primary font-black -ml-5 tracking-tight ">Paperlab</span>
@@ -159,64 +159,66 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links 1 */}
-          <div className="p-6 border-b md:border-b-0 border-dashed border-border/80 md:border-r flex flex-col gap-3 mono-copy text-xs uppercase tracking-wider">
-             <div className="text-text-primary/40 mb-1 text-[10px]">Product</div>
-             
-             <Link href="/" className="hover:text-text-primary transition-colors w-fit group">
-                <span className="relative">Tools<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
-             </Link>
-
-             <div className="relative group/tooltip w-fit">
-               <button className="text-left hover:text-text-primary transition-colors w-fit group">
-                  <span className="relative">Blog<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
-               </button>
-               {renderDescBox('blog')}
-             </div>
-
-             <div className="relative group/tooltip w-fit">
-               <button className="text-left hover:text-text-primary transition-colors w-fit group">
-                  <span className="relative">Portfolio<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
-               </button>
-               {renderDescBox('portfolio')}
-             </div>
-          </div>
-
-          {/* Links 2 */}
-          <div className="p-6 border-b md:border-b-0 border-dashed border-border/80 md:border-r flex flex-col gap-3 mono-copy text-xs uppercase tracking-wider">
-             <div className="text-text-primary/40 mb-1 text-[10px]">Company</div>
-             
-             <div className="relative group/tooltip w-fit">
-               <button className="text-left hover:text-text-primary transition-colors w-fit group">
-                  <span className="relative">About us<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
-               </button>
-               {renderDescBox('about')}
-             </div>
-
-             <div className="relative group/tooltip w-fit">
-               <button className="text-left hover:text-text-primary transition-colors w-fit group">
-                  <span className="relative">Help centre<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
-               </button>
-               {renderDescBox('help')}
-             </div>
-          </div>
-
-          {/* Socials & Contact */}
-          <div className="p-6 flex flex-col justify-between">
-            <div className="flex flex-col gap-3 mono-copy text-xs uppercase tracking-wider">
-               <div className="text-text-primary/40 mb-1 text-[10px]">Connect</div>
-               <Link href="https://prathm.me/" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors w-fit group">
-                  <span className="relative">Contact<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+          <div className="grid grid-cols-3 md:col-span-3">
+            {/* Links 1 */}
+            <div className="p-3 sm:p-6 border-r border-dashed border-border/80 flex flex-col gap-2 sm:gap-3 mono-copy text-[9px] sm:text-xs uppercase tracking-wider">
+               <div className="text-text-primary/40 mb-1 text-[8px] sm:text-[10px]">Product</div>
+               
+               <Link href="/" className="hover:text-text-primary transition-colors w-fit group">
+                  <span className="relative">Tools<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
                </Link>
+
+               <div className="relative group/tooltip w-fit">
+                 <button className="text-left hover:text-text-primary transition-colors w-fit group">
+                    <span className="relative">Blog<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+                 </button>
+                 {renderDescBox('blog')}
+               </div>
+
+               <div className="relative group/tooltip w-fit">
+                 <button className="text-left hover:text-text-primary transition-colors w-fit group">
+                    <span className="relative">Portfolio<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+                 </button>
+                 {renderDescBox('portfolio')}
+               </div>
             </div>
-            
-            <div className="flex items-start gap-2 mt-8">
-              <a href="https://www.linkedin.com/in/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-8 w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="LinkedIn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              </a>
-              <a href="https://x.com/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-8 w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="Twitter">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
-              </a>
+
+            {/* Links 2 */}
+            <div className="p-3 sm:p-6 border-r border-dashed border-border/80 flex flex-col gap-2 sm:gap-3 mono-copy text-[9px] sm:text-xs uppercase tracking-wider">
+               <div className="text-text-primary/40 mb-1 text-[8px] sm:text-[10px]">Company</div>
+               
+               <div className="relative group/tooltip w-fit">
+                 <button className="text-left hover:text-text-primary transition-colors w-fit group">
+                    <span className="relative">About<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+                 </button>
+                 {renderDescBox('about')}
+               </div>
+
+               <div className="relative group/tooltip w-fit">
+                 <button className="text-left hover:text-text-primary transition-colors w-fit group">
+                    <span className="relative">Help<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+                 </button>
+                 {renderDescBox('help')}
+               </div>
+            </div>
+
+            {/* Socials & Contact */}
+            <div className="p-3 sm:p-6 flex flex-col justify-between">
+              <div className="flex flex-col gap-2 sm:gap-3 mono-copy text-[9px] sm:text-xs uppercase tracking-wider">
+                 <div className="text-text-primary/40 mb-1 text-[8px] sm:text-[10px]">Connect</div>
+                 <Link href="https://prathm.me/" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors w-fit group">
+                    <span className="relative">Contact<span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-text-primary transition-all group-hover:w-full"/></span>
+                 </Link>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row items-start gap-2 mt-4 sm:mt-8">
+                <a href="https://www.linkedin.com/in/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" className="sm:w-[14px] sm:h-[14px]"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://x.com/prathamyadavv" target="_blank" rel="noopener noreferrer" className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center border border-border text-text-muted transition-all hover:border-text-primary hover:text-text-primary hover:-translate-y-1 bg-bg-elevated/30" aria-label="Twitter">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" strokeLinejoin="miter" className="sm:w-[14px] sm:h-[14px]"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>
