@@ -117,13 +117,17 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   onChange={(e) => setQuery(e.target.value)}
                   className="mono-copy font-mono flex-1 bg-transparent text-text-primary placeholder:font-mono placeholder:text-text-muted focus:outline-none sm:text-base"
                 />
-                <div className="hidden sm:flex items-center justify-center rounded-none border border-border bg-bg-subtle px-1.5 py-0.5 text-xs font-medium font-mono mono-copy text-text-secondary shadow-sm">
+                <button 
+                  onClick={onClose}
+                  className="hidden sm:flex items-center justify-center rounded-none border border-border bg-bg-subtle px-1.5 py-0 text-[10px] font-medium font-mono mono-copy text-text-secondary shadow-sm hover:bg-bg-elevated hover:text-text-primary hover:border-border-hover transition-colors cursor-pointer"
+                  aria-label="Close search"
+                >
                   ESC
-                </div>
+                </button>
               </div>
 
               {/* Tools List */}
-              <div className="max-h-[50vh] overflow-y-auto p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              <div data-lenis-prevent className="max-h-[50vh] overflow-y-auto p-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {filteredTools.length === 0 ? (
                   <div className="py-14 text-center text-sm text-text-secondary">
                     No tools found for "{query}"
