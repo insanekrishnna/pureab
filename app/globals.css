@@ -140,7 +140,7 @@ body {
   overflow-x: hidden;
   background: var(--bg);
   color: var(--text-primary);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-jetbrains-mono), monospace;
   letter-spacing: 0;
 }
 
