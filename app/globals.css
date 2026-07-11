@@ -154,25 +154,25 @@ textarea {
 
 @layer utilities {
   .glass-panel {
-    border: 1px solid var(--border);
+    border: 1px dashed var(--text-primary);
     background: var(--surface-overlay);
     box-shadow: var(--shadow-glass);
   }
 
   .glass-card {
-    border: 1px solid var(--border);
+    border: 1px dashed var(--text-primary);
     background: var(--surface);
     box-shadow: var(--shadow-sm);
   }
 
   .soft-panel {
-    border: 1px solid var(--border);
+    border: 1px dashed var(--text-primary);
     background: var(--surface-raised);
     box-shadow: var(--shadow-sm);
   }
 
   .field-surface {
-    border: 1px solid var(--border);
+    border: 1px dashed var(--text-primary);
     background: var(--surface);
     box-shadow: var(--shadow-sm);
   }
