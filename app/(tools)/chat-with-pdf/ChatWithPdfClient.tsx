@@ -253,7 +253,7 @@ Valid types are "tool", "product", "place", or "resource".`,
                 disabled={!extractedText || extracting}
               />
               <Button
-                onClick={sendMessage}
+                onClick={() => void sendMessage()}
                 disabled={!question.trim() || !extractedText || streaming}
                 icon={<ArrowUp className="h-4 w-4" aria-hidden="true" />}
               >
