@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import { BrainCircuit } from "lucide-react";
 import { useState } from "react";
 
 import { FileDropzone } from "@/components/shared/FileDropzone";
@@ -40,7 +40,7 @@ export function SummarizePdfClient() {
 
   return (
     <ToolShell
-      icon={<Sparkles className="h-5 w-5" aria-hidden="true" />}
+      icon={<BrainCircuit className="h-5 w-5" aria-hidden="true" />}
       title="Summarize PDF"
       description="Generate a concise AI summary from extracted document text."
     >

@@ -27,7 +27,7 @@ import {
   Scissors,
   Shield,
   ShoppingCart,
-  Sparkles,
+  BrainCircuit,
   Type,
   Unlock,
   Volume2,
@@ -266,7 +266,7 @@ export const tools: Tool[] = [
     slug: "summarize-pdf",
     name: "Summarize PDF",
     description: "Get an AI summary instantly",
-    icon: Sparkles,
+    icon: BrainCircuit,
     category: "ai",
   },
   {
