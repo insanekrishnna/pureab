@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { FileDropzone } from "@/components/shared/FileDropzone";
 import { FileList } from "@/components/shared/FileList";
 import { ToolShell } from "@/components/shared/ToolShell";
+import { ExploreCard, ExploreCardData } from "@/components/chat/ExploreCard";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { usePdfTool } from "@/hooks/usePdfTool";
@@ -47,7 +48,26 @@ export function ChatWithPdfClient() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [question, setQuestion] = useState("");
   const [streaming, setStreaming] = useState(false);
+  const [placeholderText, setPlaceholderText] = useState("");
   const scrollerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const targetText = "Summarize this PDF...";
+    let currentText = "";
+    let currentIndex = 0;
+    
+    const typingInterval = setInterval(() => {
+      if (currentIndex < targetText.length) {
+        currentText += targetText[currentIndex];
+        setPlaceholderText(currentText);
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 50);
+
+    return () => clearInterval(typingInterval);
+  }, []);
 
   useEffect(() => {
     scrollerRef.current?.scrollTo({
@@ -70,8 +90,8 @@ export function ChatWithPdfClient() {
     }
   }
 
-  async function sendMessage() {
-    const userQuestion = question.trim();
+  async function sendMessage(overrideQuestion?: string) {
+    const userQuestion = (typeof overrideQuestion === "string" ? overrideQuestion : question).trim();
     if (!userQuestion || !extractedText || streaming) return;
 
     setQuestion("");
@@ -85,7 +105,11 @@ export function ChatWithPdfClient() {
     try {
       await streamGemini(
         extractedText,
-        `Answer this question about the document: ${userQuestion}`,
+        `Answer this question about the document: ${userQuestion}
+
+If your answer recommends or discusses a specific tool, product, place, or resource, please append an explore card to your response using EXACTLY this format at the very end:
+<ExploreCard>{"title": "...", "description": "...", "type": "tool", "actionText": "..."}</ExploreCard>
+Valid types are "tool", "product", "place", or "resource".`,
         (token) => {
           setMessages((current) => {
             const next = [...current];
@@ -126,11 +150,35 @@ export function ChatWithPdfClient() {
             <p className="text-sm text-text-secondary">Extracting text...</p>
           ) : null}
         </div>
-        <div className="glass-card flex min-h-[520px] flex-col overflow-hidden rounded-none">
-          <div ref={scrollerRef} className="flex-1 space-y-3 overflow-y-auto p-4">
+        <div className="glass-card flex h-[60vh] max-h-[600px] min-h-[400px] flex-col overflow-hidden rounded-none">
+            <div ref={scrollerRef} className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.length === 0 ? (
-              <div className="flex h-full items-center justify-center text-sm text-text-muted mono-copy uppercase tracking-widest text-[10px]">
-                UPLOAD PDF TO START CHAT
+              <div className="flex h-full flex-col items-center justify-center gap-6 p-6">
+                {!extractedText ? (
+                  <div className="text-sm text-text-muted mono-copy uppercase tracking-widest text-[8px]">
+                    UPLOAD PDF TO START CHAT
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-start gap-1.5 mt-auto self-start ml-0 mb-2 max-w-[85%]">
+                    <p className="text-[8px] text-text-secondary mb-0.5">Try asking one of these:</p>
+                    {[
+                      "What tools are mentioned in this PDF?",
+                      "Can you summarize the main points in 3 bullets?",
+                      "Are there any products recommended in this document?"
+                    ].map((suggestion, i) => (
+                      <button
+                        key={i}
+                        onClick={() => {
+                          setQuestion(suggestion);
+                          void sendMessage(suggestion);
+                        }}
+                        className="w-fit text-left px-2 py-1 bg-bg-base/60 border border-border/50 hover:border-[#7b61ff]/60 hover:bg-[#7b61ff]/10 transition-all duration-300 text-[8px] text-text-primary rounded-sm shadow-sm"
+                      >
+                        {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             ) : (
               <div className="flex flex-col gap-4">
@@ -138,6 +186,19 @@ export function ChatWithPdfClient() {
                   const isUser = message.role === "user";
                   const isLastAssistant = index === messages.length - 1 && !isUser;
                   
+                  let cleanContent = message.content;
+                  let exploreCardData: ExploreCardData | null = null;
+                  
+                  const exploreCardMatch = message.content.match(/<ExploreCard>([\s\S]*?)<\/ExploreCard>/);
+                  if (exploreCardMatch) {
+                    cleanContent = message.content.replace(exploreCardMatch[0], "").trim();
+                    try {
+                      exploreCardData = JSON.parse(exploreCardMatch[1]);
+                    } catch (e) {
+                      console.error("Failed to parse explore card", e);
+                    }
+                  }
+
                   return (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -159,7 +220,10 @@ export function ChatWithPdfClient() {
                         {isLastAssistant && streaming && !message.content ? (
                           <TypingIndicator />
                         ) : (
-                          <div className="mono-copy whitespace-pre-wrap">{message.content}</div>
+                          <div className="flex flex-col">
+                            {cleanContent && <div className="mono-copy whitespace-pre-wrap">{cleanContent}</div>}
+                            {exploreCardData && <ExploreCard data={exploreCardData} />}
+                          </div>
                         )}
                         
                         {/* Chat bubble tail for rectangular theme */}
@@ -185,7 +249,7 @@ export function ChatWithPdfClient() {
                 onKeyDown={(event) => {
                   if (event.key === "Enter") void sendMessage();
                 }}
-                placeholder="Ask about this PDF..."
+                placeholder={placeholderText}
                 disabled={!extractedText || extracting}
               />
               <Button
