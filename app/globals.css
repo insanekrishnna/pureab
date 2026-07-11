@@ -172,7 +172,7 @@ textarea {
   }
 
   .field-surface {
-    border: 1px dashed var(--text-primary);
+    border: 1px solid var(--border);
     background: var(--surface);
     box-shadow: var(--shadow-sm);
   }
