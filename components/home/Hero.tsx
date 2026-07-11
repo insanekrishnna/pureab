@@ -145,7 +145,7 @@ export function Hero() {
 
   return (
     <section className="mx-auto max-w-5xl border-x border-dashed border-border">
-      <div className="relative flex min-h-[calc(100svh-64px-150px)] flex-col md:flex-row items-center overflow-hidden border-b border-dashed border-border py-16 lg:py-0">
+      <div className="relative flex min-h-fit md:min-h-[calc(100svh-64px-150px)] flex-col md:flex-row items-center overflow-hidden border-b border-dashed border-border py-12 md:py-16 lg:py-0">
         <div className="absolute inset-0 h-full w-full overflow-hidden">
           <div className="linework pointer-events-none absolute inset-0 opacity-70" />
         </div>
@@ -178,10 +178,10 @@ export function Hero() {
 
           <motion.div 
             variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } } }}
-            className="hero-display flex flex-col gap-2 px-6 text-6xl sm:text-7xl"
+            className="hero-display flex flex-col gap-2 px-6 text-5xl sm:text-7xl"
           >
             <h1 className="text-text-secondary">
-              <span className="whitespace-nowrap text-balance sm:whitespace-nowrap">Everything your PDFs need,</span> <br />
+              <span className="text-balance sm:whitespace-nowrap">Everything your PDFs need,</span> <br />
               <span className="text-text-primary whitespace-nowrap">in one click.</span>
             </h1>
           </motion.div>
