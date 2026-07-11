@@ -29,9 +29,9 @@ export function ProcessButton({
       <button
         type="button"
         className={cn(
-          "group relative inline-flex w-full items-center justify-center overflow-hidden bg-white text-black border border-[#7b70ff] px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7b70ff] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          "group relative inline-flex w-full items-center justify-center overflow-hidden bg-accent text-accent-foreground rounded-md px-8 py-3.5 font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
           !disabled 
-            ? "active:scale-[0.99] active:bg-neutral-100 hover:bg-neutral-50/50" 
+            ? "active:scale-[0.99] hover:bg-accent-hover shadow-sm" 
             : "opacity-60 cursor-not-allowed"
         )}
         onClick={onClick}

@@ -38,14 +38,14 @@ export function DownloadCard({ blob, filename, onReset }: DownloadCardProps) {
         <div className="flex shrink-0 flex-col sm:flex-row gap-2">
           <button
             onClick={() => triggerDownload(blob, filename)}
-            className="mono-copy group flex items-center justify-center gap-2 rounded-none bg-[#7b61ff] px-5 py-2 text-xs font-medium text-white transition-all hover:bg-[#6a52e5] hover:shadow-[0_0_15px_rgba(123,97,255,0.25)] active:scale-[0.99]"
+            className="mono-copy group flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-2 text-xs font-medium text-accent-foreground transition-all hover:bg-accent-hover shadow-sm active:scale-[0.99]"
           >
             <Download className="h-3.5 w-3.5" aria-hidden="true" />
             Download
           </button>
           <button 
             onClick={onReset}
-            className="mono-copy group flex items-center justify-center gap-2 rounded-none border border-border bg-bg-elevated px-5 py-2 text-xs font-medium text-text-primary transition-all hover:bg-bg-subtle hover:border-border-hover active:scale-[0.99]"
+            className="mono-copy group flex items-center justify-center gap-2 rounded-md border border-border bg-bg-subtle px-5 py-2 text-xs font-medium text-text-primary transition-all hover:bg-bg-elevated hover:border-border-hover active:scale-[0.99] shadow-sm"
           >
             Process another
           </button>
