@@ -99,10 +99,8 @@ export function AddWatermarkClient() {
             onClick={() =>
               tool.process(async ([file], onProgress) => {
                 const { addWatermark } = await import("@/lib/pdf/watermark");
-                const color =
-                  getComputedStyle(document.documentElement)
-                    .getPropertyValue("--text-primary")
-                    .trim() || "#09090B";
+                const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+                const color = isDark ? "#ffffff" : "#000000";
 
                 onProgress(20);
                 const blob = await addWatermark(file, {
