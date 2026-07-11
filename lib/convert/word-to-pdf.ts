@@ -1,32 +1,40 @@
 export async function wordToPdf(file: File): Promise<Blob> {
   const mammoth = await import("mammoth");
   const { jsPDF } = await import("jspdf");
-  const { value } = await mammoth.convertToHtml({
+  
+  // Extract clean plain text instantly, avoiding complex DOM rendering
+  const { value: rawText } = await mammoth.extractRawText({
     arrayBuffer: await file.arrayBuffer(),
   });
+
+  // Create a new PDF document (A4 size, points unit)
   const doc = new jsPDF({ unit: "pt", format: "a4" });
-  const container = document.createElement("div");
+  
+  // A4 dimensions in pt: roughly 595 x 842. 
+  // We use 40pt margins, so max width is ~515pt.
+  const margin = 40;
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const maxLineWidth = pageWidth - margin * 2;
+  
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(11);
+  
+  // Let jsPDF handle word wrapping
+  const lines = doc.splitTextToSize(rawText, maxLineWidth);
+  
+  let cursorY = margin;
+  const lineHeight = 14;
 
-  container.style.width = "560px";
-  container.style.fontFamily = "var(--font-geist-sans), system-ui, sans-serif";
-  container.style.fontSize = "12px";
-  container.style.lineHeight = "1.5";
-  container.innerHTML = value;
-  document.body.appendChild(container);
-
-  try {
-    await new Promise<void>((resolve) => {
-      doc.html(container, {
-        callback: () => resolve(),
-        x: 36,
-        y: 36,
-        width: 523,
-        windowWidth: 720,
-      });
-    });
-
-    return doc.output("blob");
-  } finally {
-    container.remove();
+  for (let i = 0; i < lines.length; i++) {
+    // If we exceed the page height, add a new page
+    if (cursorY + lineHeight > pageHeight - margin) {
+      doc.addPage();
+      cursorY = margin;
+    }
+    doc.text(lines[i], margin, cursorY);
+    cursorY += lineHeight;
   }
+
+  return doc.output("blob");
 }
