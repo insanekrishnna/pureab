@@ -193,7 +193,7 @@ export function Hero() {
             <Link href="/merge-pdf">
               <button
                 data-slot="button"
-                className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
+                className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-md text-[10px] font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none bg-accent text-accent-foreground hover:bg-accent-hover shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
               >
                 <span>Get Started</span>
                 <svg
@@ -222,7 +222,7 @@ export function Hero() {
                 <Link href="https://github.com/insanekrishnna/pureab" target="_blank" rel="noopener noreferrer">
                   <button
                     data-slot="button"
-                    className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-none text-[10px] font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none border border-transparent bg-text-primary text-bg hover:opacity-80 shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
+                    className="cursor-pointer select-none inline-flex items-center duration-200 justify-center gap-1.5 whitespace-nowrap rounded-md text-[10px] font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-3.5 shrink-0 [&_svg]:shrink-0 outline-none border border-transparent bg-text-primary text-bg hover:opacity-80 shadow-sm h-7 px-3 py-1 has-[>svg]:px-2"
                   >
                     <span>Open Source</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" className="h-3.5 w-3.5" aria-hidden="true">
