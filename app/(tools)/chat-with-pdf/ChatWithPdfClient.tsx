@@ -162,7 +162,7 @@ Valid types are "tool", "product", "place", or "resource".`,
                   <div className="flex flex-col items-start gap-1.5 mt-auto self-start ml-0 mb-2 max-w-[85%]">
                     <p className="text-[8px] text-text-secondary mb-0.5">Try asking one of these:</p>
                     {[
-                      "What tools are mentioned in this PDF?",
+                      "What tools are mentioned in this document?",
                       "Can you summarize the main points in 3 bullets?",
                       "Are there any products recommended in this document?"
                     ].map((suggestion, i) => (
